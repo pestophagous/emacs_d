@@ -54,6 +54,8 @@
 (global-set-key (kbd "w") 'browse-url)
 
 
+; the indent-region function is supposed to have an out-of-the-box key combo, but on my mac it stopped working after OS upgrades
+(global-set-key (kbd "\\") 'indent-region)
 
 
 ; this showed highlighting of the "selection", which was nice, but it did other weird stuff that "lost" the mark
@@ -157,6 +159,11 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.ipp?$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . c++-mode))
+
+(require 'find-file) ;; for the "cc-other-file-alist" variable
+(nconc (cadr (assoc "\\.h\\'" cc-other-file-alist)) '(".m" ".mm"))
+(add-to-list 'cc-other-file-alist '("\\.m\\'" (".h")))
+(add-to-list 'cc-other-file-alist '("\\.mm\\'" (".h")))
 
 
 (add-hook 'c-mode-common-hook
