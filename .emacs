@@ -152,6 +152,14 @@ color-theme-xp) )
  (setq c-cleanup-list  '(empty-defun-braces defun-close-semi))
 
  (set-fill-column 80)
+
+ (font-lock-add-keywords
+  nil '(;;  new C++11 keywords. (each string literal is a REGEX)
+	("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
+	("\\<\\(char16_t\\|char32_t\\)\\>" . font-lock-keyword-face)
+	;; user-defined types (rather project-specific) (kept as an example of how to do this)
+	("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
+	))
 ) ;  end of (defun my-c-mode-common-hook ()
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
