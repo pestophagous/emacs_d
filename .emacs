@@ -239,6 +239,9 @@ color-theme-xp) )
 (delete-other-windows)
 (split-window-horizontally)
 
+; setting this threshold to nil prevents emacs from opening
+; half-height windows when 2 windows already exist in the frame:
+(setq split-height-threshold nil)
 
 ;Toggle Show Paren mode.
 ;When Show Paren mode is enabled, any matching parenthesis is highlighted
