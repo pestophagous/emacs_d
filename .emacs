@@ -341,13 +341,20 @@ color-theme-xp) )
 
 
 
+(when (string= system-name "BOOTCAMP-W7")
+    (setq mybuild-command "build.bat -j8 --retest")
+    (setq mybuild-dir "G:/SLX5/SuperLabProject/build/scons/"))
+
+(when (eq system-type 'darwin)
+    (setq mybuild-command "./build.sh -j8 --retest")
+    (setq mybuild-dir "~/Documents/gitgitgit/SL/one/3_in_1_repo/SuperLabProject/build/scons/"))
 
 (defun sup-compile ()
 	(interactive)
 	(progn
 		(setq save-pre-dir default-directory)
-		(setq default-directory "~/Documents/gitgitgit/SL/one/3_in_1_repo/SuperLabProject/build/scons/")
-		(compile "./build.sh -j8 --retest")
+		(setq default-directory mybuild-dir)
+		(compile mybuild-command)
 		(setq default-directory save-pre-dir)
 
 		; The following is ALMOST correct. The next two calls WOULD do what I want if I could make them WAIT until compilation is DONE.
