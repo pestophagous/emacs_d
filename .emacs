@@ -31,6 +31,8 @@
 
 (require 'show-wspace) ; ~/.emacs.d/show-wspace.el
 
+(require 'dos)
+
 (defun ttt ()
     (interactive)
     (show-ws-toggle-show-tabs)
@@ -119,13 +121,6 @@ color-theme-xp) )
             doremi-color-themes))         ; themes to cycle through
 
 
-; choose my default colors on launch:
-(color-theme-robin-hood)
-
-
-
-
-
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
 (defun my-c-mode-common-hook ()
@@ -178,8 +173,8 @@ color-theme-xp) )
   (lambda()
     (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
-
-(require 'python-mode) ; /Applications/Emacs.app/Contents/Resources/site-lisp/python-mode.elc
+(when (eq system-type 'darwin)
+    (require 'python-mode)) ; /Applications/Emacs.app/Contents/Resources/site-lisp/python-mode.elc
 
 (defun my-python-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
@@ -224,20 +219,26 @@ color-theme-xp) )
 
 
 
+;(when (eq system-type 'darwin)
+;(when (eq system-type 'windows-nt)
 
+(when (string= system-name "BOOTCAMP-W7")
+    (color-theme-gnome2)
+    (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
+    (set-face-attribute 'default nil :height 110)
+    (set-frame-size (selected-frame) 277 83)
+    (set-frame-position (selected-frame) 5  5))
 
-(set-frame-height (selected-frame) 82)
-(set-frame-width (selected-frame) 306)
-(set-frame-position (selected-frame) 80  58)
+(when (eq system-type 'darwin)
+    (color-theme-robin-hood)
+    (set-frame-height (selected-frame) 82)
+    (set-frame-width (selected-frame) 306)
+    (set-frame-position (selected-frame) 80  58)
+    (set-face-attribute 'default nil :height 130))
 
 (delete-other-windows)
 (split-window-horizontally)
 
-(set-face-attribute 'default
-                      nil
-                      :height
-                      130
-)
 
 ;Toggle Show Paren mode.
 ;When Show Paren mode is enabled, any matching parenthesis is highlighted
