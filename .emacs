@@ -311,9 +311,20 @@ color-theme-xp) )
 ; Anything other than zero doesn't exactly give you DETAILS...... it basically just means
 ; that we need to exclude the line.  What a non-zero value actually gives you is the SUM of ALL one-based
 ; character positions where an exclusion string was matched.
+(defun matches-mywarning-criteria (just-a-line)
+    (if (char-equal 47 (car (string-to-list just-a-line) ))
+	t
+      nil) )
+
+(when (string= system-name "BOOTCAMP-W7")
+(defun matches-mywarning-criteria (just-a-line)
+    (if (char-equal 103 (car (string-to-list just-a-line) )) ; 103 is 'g', the root drive letter for the build
+	t
+      nil) ))
+
 (defun custom-analyze-one-compiler-line (just-a-line)
   (progn
-    (if (char-equal 47 (car (string-to-list just-a-line) ))
+    (if (matches-mywarning-criteria just-a-line)
 	(if (= 0 (reduce '+ (map 'list (lambda (bad-string) (if (string-match  bad-string just-a-line ) (+ 1 (string-match bad-string  just-a-line  )) 0 ))  myuser-compiler-warning-exclusions  ) ))
 	    (progn
 	      (end-of-buffer)
