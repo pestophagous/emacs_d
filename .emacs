@@ -301,6 +301,9 @@ color-theme-xp) )
 	 "ignoring #pragma warning"
 	 "src/liblsl/include/lsl_cpp.h"
 	 "src/Rand/die.c"
+	 "warning C4275: non dll-interface class"
+	 "warning C4481: nonstandard extension used: override specifier 'override'"
+	 "warning C4996: 'wxDocument::GetPrintableName': was declared deprecated"
        )
 )
 
