@@ -8,6 +8,10 @@
 (setq load-path
 	(cons "~/.emacs.d" load-path))
 
+(setq winmachine1 "BOOTCAMP-W7")
+
+(setq debmachine1 "deb1.m.home")
+
 (setq desktop-restore-eager 25) ; restore N buffers immediately, the rest lazily. [otherwise ALL buffers load by default]
 (desktop-save-mode 1)
 
@@ -222,7 +226,7 @@ color-theme-xp) )
 ;(when (eq system-type 'darwin)
 ;(when (eq system-type 'windows-nt)
 
-(when (string= system-name "BOOTCAMP-W7")
+(when (string= system-name winmachine1)
     (color-theme-gnome2)
     (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
     (set-face-attribute 'default nil :height 110)
@@ -235,6 +239,13 @@ color-theme-xp) )
     (set-frame-width (selected-frame) 306)
     (set-frame-position (selected-frame) 80  58)
     (set-face-attribute 'default nil :height 130))
+
+(when (string= system-name debmachine1)
+    (color-theme-gnome2)
+    (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
+    (set-face-attribute 'default nil :height 110)
+    (set-frame-size (selected-frame) 276 65)
+    (set-frame-position (selected-frame) 0 0))
 
 (delete-other-windows)
 (split-window-horizontally)
@@ -319,7 +330,7 @@ color-theme-xp) )
 	t
       nil) )
 
-(when (string= system-name "BOOTCAMP-W7")
+(when (string= system-name winmachine1)
 (defun matches-mywarning-criteria (just-a-line)
     (if (char-equal 103 (car (string-to-list just-a-line) )) ; 103 is 'g', the root drive letter for the build
 	t
@@ -358,7 +369,7 @@ color-theme-xp) )
 
 
 
-(when (string= system-name "BOOTCAMP-W7")
+(when (string= system-name winmachine1)
     (setq mybuild-command "build.bat -j8 --retest")
     (setq mybuild-dir "G:/SLX5/SuperLabProject/build/scons/"))
 
