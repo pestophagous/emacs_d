@@ -288,6 +288,8 @@ color-theme-xp) )
 
 (setq mac-option-modifier 'meta)
 
+; not sure why this suddenly became necessary on mac 10.10:
+(global-set-key '[(kp-delete)] 'delete-char)
 
 
 
