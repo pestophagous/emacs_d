@@ -336,6 +336,12 @@ color-theme-xp) )
 	t
       nil) ))
 
+(when (string= system-name debmachine1)
+  (defun matches-mywarning-criteria (just-a-line)
+    (if (and (char-equal 47 (car (string-to-list just-a-line) )) (char-equal 104 (car (cdr (string-to-list just-a-line))) ) )
+      t
+    nil)))
+
 (defun custom-analyze-one-compiler-line (just-a-line)
   (progn
     (if (matches-mywarning-criteria just-a-line)
@@ -377,7 +383,11 @@ color-theme-xp) )
     (setq mybuild-command "./build.sh -j8 --retest")
     (setq mybuild-dir "~/Documents/gitgitgit/SL/one/3_in_1_repo/SuperLabProject/build/scons/"))
 
-(defun sup-compile ()
+(when (string= system-name debmachine1)
+    (setq mybuild-command "subsurface/scripts/sbuild.sh")
+    (setq mybuild-dir "/home/myself/Documents/SHARED/gitsubsurf/"))
+
+(defun supcompile ()
 	(interactive)
 	(progn
 		(setq save-pre-dir default-directory)
