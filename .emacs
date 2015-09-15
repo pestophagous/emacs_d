@@ -447,3 +447,6 @@ color-theme-xp) )
 
 (add-hook 'compilation-mode-hook 'enable-custom-commands-to-run-after-each-compilation)
 
+
+;(require 'tramp)
+;C-x C-f /sudo::/path/to/file  ; <---- just a note to REMIND me how the syntax for this looks
