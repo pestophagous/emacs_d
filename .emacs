@@ -420,7 +420,12 @@ color-theme-xp) )
 
 
 (defun my-routine-to-execute-upon-compile-completion (buffer string)
-
+  ; we have to check for 'compilation-mode because OTHER EMACS FEATURES use the compilation hooks!
+  ; That caught me by surprise! but see here: https://lists.gnu.org/archive/html/help-gnu-emacs/2008-08/msg00158.html
+  ; From:	Kevin Rodgers
+  ; Subject:	Re: compilation/grep buffer advice
+  ; Date:	Thu, 07 Aug 2008 21:19:23 -0600
+  (if (eq major-mode 'compilation-mode)
   ; the "save-excursion" does not seem to successfully put me back in the file i was editing during compilation.
   ;(save-excursion
     (progn
@@ -431,7 +436,7 @@ color-theme-xp) )
 ;; >>>>>  NOTE: this "other-window" call **does** appear to put the cursor back where I like <<<<<<<<<<<<<
       (other-window 1)
   ;)
-))
+)))
 
 
 
