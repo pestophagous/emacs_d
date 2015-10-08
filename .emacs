@@ -456,3 +456,7 @@ color-theme-xp) )
 
 ;(require 'tramp)
 ;C-x C-f /sudo::/path/to/file  ; <---- just a note to REMIND me how the syntax for this looks
+
+;C-h l  ; shows keystroke history (command history) that you have been typing
+
+;M-x describe-key ; to find out what is invoked by some key combo
