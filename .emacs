@@ -54,6 +54,7 @@
   (revert-buffer 'ignore-auto 'noconfirm)
 )
 
+; the next line should show a CARET, then a capital X, then r. in a browser and in bash console i only see "r"
 (global-set-key (kbd "r") 'revert-no-asking)
 
 
