@@ -63,6 +63,9 @@
 ; the indent-region function is supposed to have an out-of-the-box key combo, but on my mac it stopped working after OS upgrades
 (global-set-key (kbd "\\") 'indent-region)
 
+; i tried it as 'gud-mode-hook , and *local* set-key. but you are not IN the *gud* buffer when you want to use it!
+(when (string= system-name debmachine1)
+  (global-set-key (kbd "C-x SPC") 'gud-break)) ; this WIPES OUT the 'rectangle-mark-mode that C-x SPC defaults to here!
 
 ; this showed highlighting of the "selection", which was nice, but it did other weird stuff that "lost" the mark
 ;(transient-mark-mode t)
