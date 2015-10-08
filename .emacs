@@ -464,3 +464,5 @@ color-theme-xp) )
 ;C-h l  ; shows keystroke history (command history) that you have been typing
 
 ;M-x describe-key ; to find out what is invoked by some key combo
+
+; set-buffer-file-coding-system (to convert a DOS line-ending file to unix)
