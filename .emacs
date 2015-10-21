@@ -66,7 +66,17 @@
 
 ; i tried it as 'gud-mode-hook , and *local* set-key. but you are not IN the *gud* buffer when you want to use it!
 (when (string= system-name debmachine1)
-  (global-set-key (kbd "C-x SPC") 'gud-break)) ; this WIPES OUT the 'rectangle-mark-mode that C-x SPC defaults to here!
+  (global-set-key (kbd "C-x SPC") 'gud-break) ; this WIPES OUT the 'rectangle-mark-mode that C-x SPC defaults to here!
+
+  ; refer to http://stackoverflow.com/q/3473134/10278 and http://stackoverflow.com/q/20226626/10278
+  (defadvice gud-display-line (around one-source-window activate)
+    "Always use the same window to show source code."
+    (let ((buf (get-file-buffer true-file)))
+      (when (and buf gdb-source-window)
+        (set-window-buffer gdb-source-window buf)))
+    (let (split-width-threshold split-width-threshold)
+      ad-do-it
+      )))
 
 ; this showed highlighting of the "selection", which was nice, but it did other weird stuff that "lost" the mark
 ;(transient-mark-mode t)
