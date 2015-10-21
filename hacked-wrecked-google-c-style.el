@@ -146,13 +146,13 @@ Suitable for inclusion in 'c-offsets-alist'."
 		  (block-open . 0)
 		  (inline-open . 0)
 		  (substatement-open . 0)
-		  (statement-cont
-		   .
-		   (,(when (fboundp 'c-no-indent-after-java-annotations)
-		       'c-no-indent-after-java-annotations)
-		    ,(when (fboundp 'c-lineup-assignments)
-		       'c-lineup-assignments)
-		    ++))
+;; 		  (statement-cont
+;; 		   .
+;; 		   (,(when (fboundp 'c-no-indent-after-java-annotations)
+;; 		       'c-no-indent-after-java-annotations)
+;; 		    ,(when (fboundp 'c-lineup-assignments)
+;; 		       'c-lineup-assignments)
+;; 		    ++))
 		  (label . /)
 		  (case-label . +)
 		  (statement-case-open . +)
