@@ -175,7 +175,11 @@ color-theme-xp) )
 	))
 ) ;  end of (defun my-c-mode-common-hook ()
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+(require 'hacked-wrecked-google-c-style)
+(add-hook 'c-mode-common-hook 'hacked-personalized-perhaps-broken-ssstyle)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.ipp?$" . c++-mode))
