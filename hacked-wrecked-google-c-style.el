@@ -54,6 +54,10 @@ Suitable for inclusion in 'c-offsets-alist'."
 ) ; end of save-excursion
 ); end of defun
 
+(defun stop-newlines-for-semicolons ()
+  'stop
+)
+
 ; http://emacswiki.org/emacs/IndentingC
 
 
@@ -67,6 +71,8 @@ Suitable for inclusion in 'c-offsets-alist'."
   (setq c-indent-level 4) ;; Default is 2
   (setq tab-width 4)
   (c-toggle-hungry-state 1)
+  (c-toggle-auto-newline 1)
+  (c-toggle-auto-hungry-state 1)
 
   (modify-syntax-entry ?_ "w")
   (set-fill-column 100)
@@ -109,9 +115,12 @@ Suitable for inclusion in 'c-offsets-alist'."
 		  (inher-intro)) c-hanging-colons-alist))
 
   (setq c-hanging-semi&comma-criteria
-	(append '(c-semi&comma-no-newlines-for-oneline-inliners
-		  c-semi&comma-inside-parenlist
-		  c-semi&comma-no-newlines-before-nonblanks) c-hanging-semi&comma-criteria))
+	(cons 'stop-newlines-for-semicolons c-hanging-semi&comma-criteria))
+
+;;   (setq c-hanging-semi&comma-criteria
+;; 	(append '(c-semi&comma-no-newlines-for-oneline-inliners
+;; 		  c-semi&comma-inside-parenlist
+;; 		  c-semi&comma-no-newlines-before-nonblanks) c-hanging-semi&comma-criteria))
 
 
   (setq c-indent-comments-syntactically-p  t)
@@ -137,13 +146,13 @@ Suitable for inclusion in 'c-offsets-alist'."
 		  (block-open . 0)
 		  (inline-open . 0)
 		  (substatement-open . 0)
-		  (statement-cont
-		   .
-		   (,(when (fboundp 'c-no-indent-after-java-annotations)
-		       'c-no-indent-after-java-annotations)
-		    ,(when (fboundp 'c-lineup-assignments)
-		       'c-lineup-assignments)
-		    ++))
+;; 		  (statement-cont
+;; 		   .
+;; 		   (,(when (fboundp 'c-no-indent-after-java-annotations)
+;; 		       'c-no-indent-after-java-annotations)
+;; 		    ,(when (fboundp 'c-lineup-assignments)
+;; 		       'c-lineup-assignments)
+;; 		    ++))
 		  (label . /)
 		  (case-label . +)
 		  (statement-case-open . +)
