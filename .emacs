@@ -409,7 +409,7 @@ color-theme-xp) )
     (setq mybuild-command "subsurface/scripts/sbuild.sh")
     (setq mybuild-dir "/home/myself/Documents/SHARED/gitsubsurf/"))
 
-(defun supcompile ()
+(defun sucompile ()
 	(interactive)
 	(progn
 		(setq save-pre-dir default-directory)
