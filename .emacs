@@ -37,7 +37,9 @@
 
 (require 'dos)
 
-(require 'qml-mode) ; in ~/.emacs.d/
+(require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
+
+(require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
 (defun ttt ()
@@ -141,8 +143,6 @@ color-theme-xp) )
             nil                           ; ignored
             doremi-color-themes))         ; themes to cycle through
 
-
-(require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
 (defun my-c-mode-common-hook ()
  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode

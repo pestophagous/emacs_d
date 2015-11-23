@@ -96,7 +96,7 @@
 ;;; Require
 
 (require 'css-mode)
-(require 'js)
+;(require 'js) ; pestophagous commented out because it failed on Mac OS X. is it needed?
 
 ;;; Code:
 
