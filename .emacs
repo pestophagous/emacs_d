@@ -37,6 +37,9 @@
 
 (require 'dos)
 
+(require 'qml-mode) ; in ~/.emacs.d/
+(add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+
 (defun ttt ()
     (interactive)
     (show-ws-toggle-show-tabs)
