@@ -399,6 +399,7 @@ color-theme-xp) )
 
 
 
+(setq-default line-spacing 5) ; putting this next to build commands because i use them all in *scratch*, too
 
 (when (string= system-name winmachine1)
     (setq mybuild-command "build.bat -j8 --retest")
