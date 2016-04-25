@@ -475,6 +475,16 @@ color-theme-xp) )
 
 (add-hook 'compilation-mode-hook 'enable-custom-commands-to-run-after-each-compilation)
 
+;----- start section: server for intellij ------------
+; added based on https://spin.atomicobject.com/2014/08/07/intellij-emacs/
+
+;(set-default 'server-socket-dir "~/.emacs.d/server") ; <-- this line made it NOT work
+
+(if (functionp 'window-system)
+    (when (and (window-system)
+           (>= emacs-major-version 24))
+      (server-start)))
+;-----   end section: server for intellij ------------
 
 ;(require 'tramp)
 ;C-x C-f /sudo::/path/to/file  ; <---- just a note to REMIND me how the syntax for this looks
