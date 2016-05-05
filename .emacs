@@ -33,6 +33,8 @@
 	(color-theme-deep-blue)
 )
 
+(require 'longlines) ; until i figure out what has replaced this. to read: http://emacs.stackexchange.com/questions/10798/if-longlines-mode-is-removed-in-new-emacs-how-can-i-soft-wrap-the-line-around-t
+
 (require 'show-wspace) ; ~/.emacs.d/show-wspace.el
 
 (require 'dos)
