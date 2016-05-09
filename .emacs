@@ -170,7 +170,7 @@ color-theme-xp) )
 
  (setq c-cleanup-list  '(empty-defun-braces defun-close-semi))
 
- (set-fill-column 80)
+ (set-fill-column 120)
 
  (font-lock-add-keywords
   nil '(;;  new C++11 keywords. (each string literal is a REGEX)

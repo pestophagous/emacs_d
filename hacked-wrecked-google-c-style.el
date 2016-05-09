@@ -75,7 +75,7 @@ Suitable for inclusion in 'c-offsets-alist'."
   (c-toggle-auto-hungry-state 1)
 
   (modify-syntax-entry ?_ "w")
-  (set-fill-column 100)
+  (set-fill-column 120)
 					;(comment-column . 40) ;  need to test
 
   (setq c-indent-comment-alist
