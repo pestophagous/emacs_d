@@ -38,6 +38,7 @@
 (require 'show-wspace) ; ~/.emacs.d/show-wspace.el
 
 (require 'dos)
+(require 'markdown-mode)
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
