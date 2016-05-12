@@ -15,6 +15,7 @@
 (setq desktop-restore-eager 25) ; restore N buffers immediately, the rest lazily. [otherwise ALL buffers load by default]
 (desktop-save-mode 1)
 
+(setq-default fill-column 120)
 
 (defun dtw ()
 	(interactive)
@@ -34,6 +35,8 @@
 )
 
 (require 'longlines) ; until i figure out what has replaced this. to read: http://emacs.stackexchange.com/questions/10798/if-longlines-mode-is-removed-in-new-emacs-how-can-i-soft-wrap-the-line-around-t
+
+(require 'fill-column-indicator) ; To toggle, use the command: fci-mode
 
 (require 'show-wspace) ; ~/.emacs.d/show-wspace.el
 
