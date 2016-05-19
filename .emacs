@@ -189,6 +189,7 @@ color-theme-xp) )
 (require 'hacked-wrecked-google-c-style)
 (add-hook 'c-mode-common-hook 'hacked-personalized-perhaps-broken-ssstyle)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c-mode-common-hook 'fci-mode)
 
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.ipp?$" . c++-mode))
