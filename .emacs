@@ -243,6 +243,19 @@ color-theme-xp) )
 (add-hook 'html-mode-hook 'my-html-mode-common-hook)
 
 
+(defun my-js-mode-common-hook ()
+  ; i went nuts and pasted in anything about tabs that i found.
+  ; at some point i should find out if all these symbols even exist or not
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+  (setq tab-width 4)
+  (setq js-basic-offset 4)
+  (setq js-basic-offset 4)
+  (setq tab-always-indent t)
+  (setq indent-tabs-mode nil) ; use spaces only if nil ; at one point i was passing 't'
+)  ; end of (defun my-js-mode-common-hook ()
+
+(add-hook 'js-mode-hook 'my-js-mode-common-hook)
+
 
 
 
