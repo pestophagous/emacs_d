@@ -237,6 +237,7 @@ color-theme-xp) )
   (setq tab-width 4)
   (setq sgml-basic-offset 4)
   (setq tab-always-indent t)
+  (setq indent-tabs-mode nil) ; use spaces only if nil ; at one point i was passing 't'
 )  ; end of (defun my-html-mode-common-hook ()
 
 (add-hook 'html-mode-hook 'my-html-mode-common-hook)
