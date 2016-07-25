@@ -8,6 +8,13 @@
 (setq load-path
 	(cons "~/.emacs.d" load-path))
 
+(setq load-path
+      (cons "/opt/repos/priv-dots/scala-mode2" load-path))
+
+(setq load-path
+      (cons "/opt/repos/priv-dots/sbt-mode" load-path))
+
+
 (setq winmachine1 "BOOTCAMP-W7")
 
 (setq debmachine1 "deb1.m.home")
@@ -44,6 +51,9 @@
 (require 'markdown-mode)
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
+
+(require 'scala-mode2) ; https://github.com/hvesalai/scala-mode2  /opt/repos/priv-dots/scala-mode2
+(require 'sbt-mode)
 
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
@@ -530,10 +540,3 @@ color-theme-xp) )
 ;M-x describe-key ; to find out what is invoked by some key combo
 
 ; set-buffer-file-coding-system (to convert a DOS line-ending file to unix)
-
-
-
-
-
-
-
