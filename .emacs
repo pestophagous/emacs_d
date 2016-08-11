@@ -539,4 +539,4 @@ color-theme-xp) )
 
 ;M-x describe-key ; to find out what is invoked by some key combo
 
-; set-buffer-file-coding-system (to convert a DOS line-ending file to unix)
+; set-buffer-file-coding-system (to convert a DOS line-ending file to unix) --> type 'utf-8-unix' or 'utf-8-dos'
