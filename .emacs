@@ -9,6 +9,9 @@
 	(cons "~/.emacs.d" load-path))
 
 (setq load-path
+	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
+
+(setq load-path
       (cons "/opt/repos/priv-dots/scala-mode2" load-path))
 
 (setq load-path
@@ -40,6 +43,8 @@
 	(gdb-many-windows nil)
 	(color-theme-deep-blue)
 )
+
+(require 'go-mode-autoloads)
 
 (require 'longlines) ; until i figure out what has replaced this. to read: http://emacs.stackexchange.com/questions/10798/if-longlines-mode-is-removed-in-new-emacs-how-can-i-soft-wrap-the-line-around-t
 
