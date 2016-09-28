@@ -6,7 +6,7 @@
 (put 'upcase-region 'disabled nil)
 
 (setq load-path
-	(cons "~/.emacs.d" load-path))
+	(cons "~/.emacs.d/lisp" load-path))
 
 (setq load-path
 	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
