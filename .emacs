@@ -5,6 +5,18 @@
 ;   http://stackoverflow.com/questions/10026221/enable-all-disabled-commands-permanently
 (put 'upcase-region 'disabled nil)
 
+; -------------- MAC OS X   PATH STUFF ------------------------------
+; so far i only need exec-path customization and not PATH.
+; here is info about the difference in case i discover that i do have a need to edit PATH:
+;
+; The value of environment variable “PATH” is used by emacs when you are running a shell in emacs, similar to when you
+; are using a shell in a terminal.
+; The exec-path is used by emacs itself to find programs it needs for its features,
+; such as spell checking, file compression, compiling, grep, diff, etc.
+; (setenv "PATH" (concat (getenv "PATH") ":/sw/bin"))
+(setq exec-path (append exec-path '("/usr/local/go/bin")))  ; on mac, emacs couldn't find gofmt without this
+; -------------- MAC OS X   PATH STUFF ------------------------------
+
 (setq load-path
 	(cons "~/.emacs.d/lisp" load-path))
 
@@ -271,7 +283,10 @@ color-theme-xp) )
 
 (add-hook 'js-mode-hook 'my-js-mode-common-hook)
 
-
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            (setq tab-width 4)))
 
 
 (defun sacha/increase-font-size ()
