@@ -9,6 +9,8 @@
 	(cons "~/.emacs.d/lisp" load-path))
 
 (setq load-path
+      ; if you are wondering HOW i got 'M-x j' and 'M-x jj' to do godef jumping, see:
+      ; /opt/repos/priv-dots/go-mode_m-x_alias_004575eb128a.patch
 	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
 
 (setq load-path
