@@ -19,7 +19,7 @@
 (setq load-path
       (cons "/opt/repos/priv-dots/sbt-mode" load-path))
 
-; -------------- MAC OS X   PATH STUFF ------------------------------
+; -------------- MAC OS X   PATH STUFF -------------------------------
 ; The value of environment variable "PATH" is used by emacs when you are running a shell in emacs, similar to when you
 ; are using a shell in a terminal.
 ; The exec-path is used by emacs itself to find programs it needs for its features,
@@ -30,7 +30,7 @@
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 (exec-path-from-shell-copy-env "GOPATH")
-; -------------- MAC OS X   PATH STUFF ------------------------------
+; -------------- MAC OS X   PATH STUFF -------------------------------
 
 
 (setq winmachine1 "BOOTCAMP-W7")
