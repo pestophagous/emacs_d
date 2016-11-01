@@ -30,7 +30,7 @@
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 (exec-path-from-shell-copy-env "GOPATH")
-; -------------- MAC OS X   PATH STUFF ------------------------------
+; -------------- MAC OS X   PATH STUFF -------------------------------
 
 
 (setq winmachine1 "BOOTCAMP-W7")
