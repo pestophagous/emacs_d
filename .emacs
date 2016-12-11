@@ -68,6 +68,7 @@
 
 (require 'dos)
 (require 'markdown-mode)
+(require 'yaml-mode)
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
