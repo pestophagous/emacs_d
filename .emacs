@@ -9,6 +9,8 @@
 	(cons "~/.emacs.d/lisp" load-path))
 
 (setq load-path
+      ; if you are wondering HOW i got 'M-x j' and 'M-x jj' to do godef jumping, see:
+      ; /opt/repos/priv-dots/go-mode_m-x_alias_004575eb128a.patch
 	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
 
 (setq load-path
@@ -17,7 +19,7 @@
 (setq load-path
       (cons "/opt/repos/priv-dots/sbt-mode" load-path))
 
-; -------------- MAC OS X   PATH STUFF ------------------------------
+; -------------- MAC OS X   PATH STUFF -------------------------------
 ; The value of environment variable "PATH" is used by emacs when you are running a shell in emacs, similar to when you
 ; are using a shell in a terminal.
 ; The exec-path is used by emacs itself to find programs it needs for its features,
@@ -28,7 +30,7 @@
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 (exec-path-from-shell-copy-env "GOPATH")
-; -------------- MAC OS X   PATH STUFF ------------------------------
+; -------------- MAC OS X   PATH STUFF -------------------------------
 
 
 (setq winmachine1 "BOOTCAMP-W7")
@@ -342,8 +344,8 @@ color-theme-xp) )
 
 ; setting this threshold to nil prevents emacs from opening
 ; half-height windows when 2 windows already exist in the frame:
-(when (string= system-name winmachine1)
-    (setq split-height-threshold nil))
+;(when (string= system-name winmachine1)  ; Apparently this isn't a platform (win32) thing. it is for newer emacs versions? so i always want to set:
+    (setq split-height-threshold nil)
 
 ;Toggle Show Paren mode.
 ;When Show Paren mode is enabled, any matching parenthesis is highlighted
