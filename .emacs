@@ -40,7 +40,7 @@
 (setq desktop-restore-eager 25) ; restore N buffers immediately, the rest lazily. [otherwise ALL buffers load by default]
 (desktop-save-mode 1)
 
-(setq-default fill-column 120)
+(setq-default fill-column 80)  ; 80 for google style
 
 (defun dtw ()
 	(interactive)
@@ -205,7 +205,7 @@ color-theme-xp) )
 
  (setq c-cleanup-list  '(empty-defun-braces defun-close-semi))
 
- (set-fill-column 120)
+ (set-fill-column 80) ; 80 for google style
 
  (font-lock-add-keywords
   nil '(;;  new C++11 keywords. (each string literal is a REGEX)
@@ -218,8 +218,9 @@ color-theme-xp) )
 
 ;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
-(require 'hacked-wrecked-google-c-style)
-(add-hook 'c-mode-common-hook 'hacked-personalized-perhaps-broken-ssstyle)
+;(require 'hacked-wrecked-google-c-style)
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 (add-hook 'c-mode-common-hook 'fci-mode)
 
