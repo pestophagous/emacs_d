@@ -56,7 +56,12 @@
 (defun gmw ()
 	(interactive)
 	(gdb-many-windows nil)
-	(color-theme-deep-blue)
+	;(color-theme-deep-blue)
+)
+
+(defun gddt ()
+  (interactive)
+  (set-window-dedicated-p (selected-window) t)
 )
 
 (require 'go-mode-autoloads)
