@@ -48,9 +48,10 @@
 )
 
 (defun mywin ()
-	(interactive)
-	(delete-other-windows)
-    (split-window-horizontally)
+  (interactive)
+  (set-window-dedicated-p (get-buffer-window "*gud*") nil)
+  (delete-other-windows)
+  (split-window-horizontally)
 )
 
 (defun gmw ()
@@ -58,6 +59,14 @@
 	(gdb-many-windows nil)
 	;(color-theme-deep-blue)
 )
+
+(defun my-gmw-hook ()
+  ; make it REALLY (t) dedicated so that no cpp source files are loaded over top of the gdb prompt in gud window
+  (set-window-dedicated-p (get-buffer-window "*gud*") t)
+)
+
+(add-hook 'gdb-many-windows-hook 'my-gmw-hook)
+
 
 (defun gddt ()
   (interactive)
