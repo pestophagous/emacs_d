@@ -106,7 +106,7 @@ This is run before the process is cranked up."
   :type 'hook
   :group 'qml-mode)
 
-(defvar qml-indent-width 4)
+(defvar qml-indent-width 2)
 
 (defconst qml-block-re "\\(^[ \t]*\\)\\([a-zA-Z0-9]*\\)[ \t]*[a-zA-Z0-9_]*[ \t]*.*{")
 
