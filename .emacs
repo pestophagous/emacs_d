@@ -60,6 +60,22 @@
 	;(color-theme-deep-blue)
 )
 
+(defun eio ()
+  (interactive)
+  (switch-to-buffer-other-window "*input/output of *")
+  (erase-buffer)
+;; >>>>>  NOTE: this "other-window" call **does** appear to put the cursor back where I like <<<<<<<<<<<<<
+  (other-window 3)
+)
+
+(defun chase-comp ()
+  (interactive)
+  (when (get-buffer-window "*compilation*")
+    (switch-to-buffer-other-window "*compilation*")
+    (end-of-buffer)
+    (other-window 1))
+)
+
 (defun my-gmw-hook ()
   ; make it REALLY (t) dedicated so that no cpp source files are loaded over top of the gdb prompt in gud window
   (set-window-dedicated-p (get-buffer-window "*gud*") t)
@@ -110,6 +126,8 @@
   (interactive)
   (revert-buffer 'ignore-auto 'noconfirm)
 )
+
+(setq color-theme-is-global nil) ; so that each FRAME can have own color
 
 ; the next line should show a CARET, then a capital X, then r. in a browser and in bash console i only see "r"
 (global-set-key (kbd "r") 'revert-no-asking)
@@ -273,6 +291,9 @@ color-theme-xp) )
 
 (add-hook 'python-mode-hook 'my-python-mode-common-hook)
 
+; BAZEL BUILD syntax highlights like python:
+(add-to-list 'auto-mode-alist '("\\.bzl$" . python-mode))
+(add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
 
 
 
@@ -510,7 +531,9 @@ color-theme-xp) )
 		; The following is ALMOST correct. The next two calls WOULD do what I want if I could make them WAIT until compilation is DONE.
 		;(switch-to-buffer-other-window "*compilation*")
 		;(myuser-filter-warnings)
-))
+		)
+	(chase-comp)
+)
 
 
 
@@ -572,6 +595,11 @@ color-theme-xp) )
       (server-start)))
 ;-----   end section: server for intellij ------------
 
+;; keep buffers opened when leaving an emacs client
+(setq server-kill-new-buffers nil)
+
+(global-set-key (kbd "C-x SPC") 'gud-break)
+
 ;(require 'tramp)
 ;C-x C-f /sudo::/path/to/file  ; <---- just a note to REMIND me how the syntax for this looks
 
@@ -580,3 +608,8 @@ color-theme-xp) )
 ;M-x describe-key ; to find out what is invoked by some key combo
 
 ; set-buffer-file-coding-system (to convert a DOS line-ending file to unix) --> type 'utf-8-unix' or 'utf-8-dos'
+
+;   --- find and replace recursively across files in subdirectories:
+; dired or find-dired if you need all subdirectories.
+; Mark the files you want. (m)  ... or (t) ?
+;  dired-do-query-replace-regexp
