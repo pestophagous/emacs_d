@@ -613,3 +613,6 @@ color-theme-xp) )
 ; dired or find-dired if you need all subdirectories.
 ; Mark the files you want. (m)  ... or (t) ?
 ;  dired-do-query-replace-regexp
+;
+; if you have what you need in buffer list, then:
+;  M-x ibuffer  (then press 'h' for help. options given to mark, then regexp, then save)
