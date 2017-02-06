@@ -354,6 +354,8 @@ color-theme-xp) )
 ;(when (eq system-type 'darwin)
 ;(when (eq system-type 'windows-nt)
 
+; (print (font-family-list))  ; show available fonts
+
 (when (string= system-name winmachine1)
     (color-theme-gnome2)
     (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
