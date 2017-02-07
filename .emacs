@@ -110,6 +110,10 @@
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
+(require 'window-number)
+(window-number-mode)
+(window-number-meta-mode)
+
 (defun ttt ()
     (interactive)
     (show-ws-toggle-show-tabs)
