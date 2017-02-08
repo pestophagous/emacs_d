@@ -104,6 +104,8 @@
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
+(require 'protobuf-mode)
+
 (require 'scala-mode2) ; https://github.com/hvesalai/scala-mode2  /opt/repos/priv-dots/scala-mode2
 (require 'sbt-mode)
 
