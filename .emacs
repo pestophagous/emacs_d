@@ -334,6 +334,12 @@ color-theme-xp) )
           (lambda ()
             (add-hook 'before-save-hook 'gofmt-before-save)
             (setq tab-width 4)))
+(add-hook 'go-mode-hook 'fci-mode)
+
+(defun my-go-mode-settings ()
+  (set-fill-column 80)
+)
+(add-hook 'go-mode-hook 'my-go-mode-settings)
 
 
 (defun sacha/increase-font-size ()
@@ -382,6 +388,9 @@ color-theme-xp) )
     (set-face-attribute 'default nil :height 110)
     (set-frame-position (selected-frame) 0 0)
     (set-frame-size (selected-frame) 280 67))
+
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :font  "PT Mono"))
 
 (delete-other-windows)
 (split-window-horizontally)
