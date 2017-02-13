@@ -482,15 +482,20 @@ color-theme-xp) )
 	t
       nil) ))
 
-(when (string= system-name debmachine1)
-  (defun matches-mywarning-criteria (just-a-line)
-    (if (and (char-equal 47 (car (string-to-list just-a-line) )) (char-equal 104 (car (cdr (string-to-list just-a-line))) ) )
+
+(defun matches-mywarning-criteriaXX (just-a-line)
+  (if (or (string-prefix-p "goland/" just-a-line)
+	  (string-prefix-p "drbaldfkgjx" just-a-line)
+	  (string-prefix-p "gjtirgr" just-a-line)
+	  (string-prefix-p "/home/someone" just-a-line)
+	  )
       t
-    nil)))
+    nil))
+
 
 (defun custom-analyze-one-compiler-line (just-a-line)
   (progn
-    (if (matches-mywarning-criteria just-a-line)
+    (if (matches-mywarning-criteriaXX just-a-line)
 	(if (= 0 (reduce '+ (map 'list (lambda (bad-string) (if (string-match  bad-string just-a-line ) (+ 1 (string-match bad-string  just-a-line  )) 0 ))  myuser-compiler-warning-exclusions  ) ))
 	    (progn
 	      (end-of-buffer)
