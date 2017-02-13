@@ -276,9 +276,6 @@ color-theme-xp) )
   (lambda()
     (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
-(when (eq system-type 'darwin)
-    (require 'python-mode)) ; /Applications/Emacs.app/Contents/Resources/site-lisp/python-mode.elc
-
 (defun my-python-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
   ; at some point i should find out if all these symbols even exist or not
