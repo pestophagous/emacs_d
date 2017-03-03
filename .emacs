@@ -8,32 +8,13 @@
 (setq load-path
 	(cons "~/.emacs.d/lisp" load-path))
 
-(setq load-path
-      ; if you are wondering HOW i got 'M-x j' and 'M-x jj' to do godef jumping, see:
-      ; /opt/repos/priv-dots/go-mode_m-x_alias_004575eb128a.patch
-	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
-
-(setq load-path
-      (cons "/opt/repos/priv-dots/scala-mode2" load-path))
-
-(setq load-path
-      (cons "/opt/repos/priv-dots/sbt-mode" load-path))
-
-; -------------- MAC OS X   PATH STUFF -------------------------------
-; The value of environment variable "PATH" is used by emacs when you are running a shell in emacs, similar to when you
-; are using a shell in a terminal.
-; The exec-path is used by emacs itself to find programs it needs for its features,
-; such as spell checking, file compression, compiling, grep, diff, etc.
-; (setenv "PATH" (concat (getenv "PATH") ":/sw/bin"))
-;(setq exec-path (append exec-path '("/usr/local/bin")))  ; on mac, emacs couldn't find gofmt or dlv without this
-
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-(exec-path-from-shell-copy-env "GOPATH")
-; -------------- MAC OS X   PATH STUFF -------------------------------
 
 
-(setq winmachine1 "BOOTCAMP-W7")
+
+
+
+
+(setq winmachine1 "KK-PC") ; DNC DNC DNC DNC BOOTCAMP-W7")
 
 (setq debmachine1 "deb1.m.home")
 
@@ -107,8 +88,7 @@
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))
 
-(require 'scala-mode2) ; https://github.com/hvesalai/scala-mode2  /opt/repos/priv-dots/scala-mode2
-(require 'sbt-mode)
+
 
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
@@ -368,7 +348,8 @@ color-theme-xp) )
 
 (when (string= system-name winmachine1)
     (color-theme-gnome2)
-    (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
+    ; DNC DNC DNC DNC
+    ;(set-face-attribute 'default nil :font  "DejaVu Sans Mono")
     (set-face-attribute 'default nil :height 110)
     (set-frame-size (selected-frame) 277 83)
     (set-frame-position (selected-frame) 5  5))
