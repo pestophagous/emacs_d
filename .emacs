@@ -524,6 +524,7 @@ color-theme-xp) )
 (defun sucompile ()
 	(interactive)
 	(progn
+	  (setq mybuild-command (concat "go run " buffer-file-name))
 		(setq save-pre-dir default-directory)
 		(setq default-directory mybuild-dir)
 		(compile mybuild-command)
@@ -641,3 +642,5 @@ color-theme-xp) )
 
 (menu-bar-mode -1)
  (tool-bar-mode -1)
+
+(setq frame-title-format "%b")
