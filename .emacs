@@ -533,7 +533,7 @@ color-theme-xp) )
 		;(switch-to-buffer-other-window "*compilation*")
 		;(myuser-filter-warnings)
 		)
-	(chase-comp)
+	;(chase-comp)
 )
 
 
@@ -550,6 +550,7 @@ color-theme-xp) )
 
 (put 'compilation-recenter-end--with-selected-window 'lisp-indent-function 1)
 
+(setq recenter-positions '(top middle bottom))
 
 (defun my-routine-to-execute-upon-compile-completion (buffer string)
   ; we have to check for 'compilation-mode because OTHER EMACS FEATURES use the compilation hooks!
@@ -561,8 +562,15 @@ color-theme-xp) )
   ; the "save-excursion" does not seem to successfully put me back in the file i was editing during compilation.
   ;(save-excursion
     (progn
-      (switch-to-buffer-other-window "*compilation*")
-      (myuser-filter-warnings)
+      ;(switch-to-buffer-other-window "*compilation*")
+
+(switch-to-buffer-other-window "*compilation*")
+(goto-line 5)
+
+ (recenter-top-bottom)
+(other-window 1)
+      
+;(myuser-filter-warnings)
       ;(shell-command "cp file_a.cpp file_b.cpp")
 
 ;; >>>>>  NOTE: this "other-window" call **does** appear to put the cursor back where I like <<<<<<<<<<<<<
@@ -617,3 +625,19 @@ color-theme-xp) )
 ;
 ; if you have what you need in buffer list, then:
 ;  M-x ibuffer  (then press 'h' for help. options given to mark, then regexp, then save)
+
+;(require 'package) ;; You might already have this line
+;(add-to-list 'package-archives
+;             '("melpa" . "https://melpa.org/packages/"))
+
+;(package-initialize) ;; You might already have this line
+
+(setq compilation-window-height 8)
+
+(setq mybuild-command "go run 01_data.go")
+
+
+(setq mybuild-dir "C:/Users/kk/marzo/repos/priv-dots/gotlk17_15x/")
+
+(menu-bar-mode -1)
+ (tool-bar-mode -1)
