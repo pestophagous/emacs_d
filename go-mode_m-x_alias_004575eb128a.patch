@@ -1,0 +1,20 @@
+diff --git a/go-mode.el b/go-mode.el
+index cc6422b..e2f62d7 100644
+--- a/go-mode.el
++++ b/go-mode.el
+@@ -1588,6 +1588,15 @@ description at POINT."
+   (interactive "d")
+   (godef-jump point t))
+ 
++(defun jj (point)
++  (interactive "d")
++  (godef-jump point t))
++
++(defun j (point)
++  (interactive "d")
++  (godef-jump point nil))
++
++
+ (defun go--goto-line (line)
+   (goto-char (point-min))
+   (forward-line (1- line)))
