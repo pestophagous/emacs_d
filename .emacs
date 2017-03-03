@@ -524,6 +524,7 @@ color-theme-xp) )
 (defun sucompile ()
 	(interactive)
 	(progn
+	  (save-some-buffers 1)
 	  (setq mybuild-command (concat "go run " buffer-file-name))
 		(setq save-pre-dir default-directory)
 		(setq default-directory mybuild-dir)
@@ -644,3 +645,7 @@ color-theme-xp) )
  (tool-bar-mode -1)
 
 (setq frame-title-format "%b")
+
+(setq linum-disabled-modes-list '(eshell-mode wl-summary-mode compilation-mode))
+
+(defun linum-on () (unless (or (minibufferp) (member major-mode linum-disabled-modes-list)) (linum-mode 1)))
