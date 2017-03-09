@@ -299,6 +299,21 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("\\.bzl$" . python-mode))
 (add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
 
+(defun my-protobuf-mode-common-hook ()
+  ; i went nuts and pasted in anything about tabs that i found.
+  ; at some point i should find out if all these symbols even exist or not
+  (setq tab-width 4)
+  (setq c-tab-width 4)
+  (setq tab-always-indent t)
+  (setq c-tab-always-indent t)
+  (setq c-basic-offset 4)
+  (setq c-indent-level 4)
+  (setq indent-tabs-mode nil) ; use spaces only if nil ; at one point i was passing 't'
+  (set-variable 'c-indent-offset 4)
+  (set-variable 'indent-tabs-mode nil)
+) ; end of (defun my-protobuf-mode-common-hook ()
+
+(add-hook 'protobuf-mode-hook 'my-protobuf-mode-common-hook)
 
 
 
