@@ -8,32 +8,13 @@
 (setq load-path
 	(cons "~/.emacs.d/lisp" load-path))
 
-(setq load-path
-      ; if you are wondering HOW i got 'M-x j' and 'M-x jj' to do godef jumping, see:
-      ; /opt/repos/priv-dots/go-mode_m-x_alias_004575eb128a.patch
-	(cons "/opt/repos/priv-dots/go-mode.el" load-path))
-
-(setq load-path
-      (cons "/opt/repos/priv-dots/scala-mode2" load-path))
-
-(setq load-path
-      (cons "/opt/repos/priv-dots/sbt-mode" load-path))
-
-; -------------- MAC OS X   PATH STUFF -------------------------------
-; The value of environment variable "PATH" is used by emacs when you are running a shell in emacs, similar to when you
-; are using a shell in a terminal.
-; The exec-path is used by emacs itself to find programs it needs for its features,
-; such as spell checking, file compression, compiling, grep, diff, etc.
-; (setenv "PATH" (concat (getenv "PATH") ":/sw/bin"))
-;(setq exec-path (append exec-path '("/usr/local/bin")))  ; on mac, emacs couldn't find gofmt or dlv without this
-
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-(exec-path-from-shell-copy-env "GOPATH")
-; -------------- MAC OS X   PATH STUFF -------------------------------
 
 
-(setq winmachine1 "BOOTCAMP-W7")
+
+
+
+
+(setq winmachine1 "KK-PC") ; DNC DNC DNC DNC BOOTCAMP-W7")
 
 (setq debmachine1 "deb1.m.home")
 
@@ -107,8 +88,7 @@
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))
 
-(require 'scala-mode2) ; https://github.com/hvesalai/scala-mode2  /opt/repos/priv-dots/scala-mode2
-(require 'sbt-mode)
+
 
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
@@ -383,7 +363,8 @@ color-theme-xp) )
 
 (when (string= system-name winmachine1)
     (color-theme-gnome2)
-    (set-face-attribute 'default nil :font  "DejaVu Sans Mono")
+    ; DNC DNC DNC DNC
+    ;(set-face-attribute 'default nil :font  "DejaVu Sans Mono")
     (set-face-attribute 'default nil :height 110)
     (set-frame-size (selected-frame) 277 83)
     (set-frame-position (selected-frame) 5  5))
@@ -558,6 +539,8 @@ color-theme-xp) )
 (defun sucompile ()
 	(interactive)
 	(progn
+	  (save-some-buffers 1)
+	  (setq mybuild-command (concat "go run " buffer-file-name))
 		(setq save-pre-dir default-directory)
 		(setq default-directory mybuild-dir)
 		(compile mybuild-command)
@@ -567,7 +550,7 @@ color-theme-xp) )
 		;(switch-to-buffer-other-window "*compilation*")
 		;(myuser-filter-warnings)
 		)
-	(chase-comp)
+	;(chase-comp)
 )
 
 
@@ -584,6 +567,7 @@ color-theme-xp) )
 
 (put 'compilation-recenter-end--with-selected-window 'lisp-indent-function 1)
 
+(setq recenter-positions '(top middle bottom))
 
 (defun my-routine-to-execute-upon-compile-completion (buffer string)
   ; we have to check for 'compilation-mode because OTHER EMACS FEATURES use the compilation hooks!
@@ -595,8 +579,15 @@ color-theme-xp) )
   ; the "save-excursion" does not seem to successfully put me back in the file i was editing during compilation.
   ;(save-excursion
     (progn
-      (switch-to-buffer-other-window "*compilation*")
-      (myuser-filter-warnings)
+      ;(switch-to-buffer-other-window "*compilation*")
+
+(switch-to-buffer-other-window "*compilation*")
+(goto-line 5)
+
+ (recenter-top-bottom)
+(other-window 1)
+      
+;(myuser-filter-warnings)
       ;(shell-command "cp file_a.cpp file_b.cpp")
 
 ;; >>>>>  NOTE: this "other-window" call **does** appear to put the cursor back where I like <<<<<<<<<<<<<
@@ -651,3 +642,25 @@ color-theme-xp) )
 ;
 ; if you have what you need in buffer list, then:
 ;  M-x ibuffer  (then press 'h' for help. options given to mark, then regexp, then save)
+
+;(require 'package) ;; You might already have this line
+;(add-to-list 'package-archives
+;             '("melpa" . "https://melpa.org/packages/"))
+
+;(package-initialize) ;; You might already have this line
+
+(setq compilation-window-height 8)
+
+(setq mybuild-command "go run 01_data.go")
+
+
+(setq mybuild-dir "C:/Users/kk/marzo/repos/priv-dots/gotlk17_15x/")
+
+(menu-bar-mode -1)
+ (tool-bar-mode -1)
+
+(setq frame-title-format "%b")
+
+(setq linum-disabled-modes-list '(eshell-mode wl-summary-mode compilation-mode))
+
+(defun linum-on () (unless (or (minibufferp) (member major-mode linum-disabled-modes-list)) (linum-mode 1)))
