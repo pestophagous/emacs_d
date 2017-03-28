@@ -295,6 +295,22 @@ color-theme-xp) )
 
 (add-hook 'protobuf-mode-hook 'my-protobuf-mode-common-hook)
 
+(defun my-sh-mode-common-hook ()
+  ; i went nuts and pasted in anything about tabs that i found.
+  ; at some point i should find out if all these symbols even exist or not
+  (setq tab-width 2)
+  (setq c-tab-width 2)
+  (setq tab-always-indent t)
+  (setq c-tab-always-indent t)
+  (setq c-basic-offset 2)
+  (setq c-indent-level 2)
+  (setq indent-tabs-mode nil) ; use spaces only if nil ; at one point i was passing 't'
+  (set-variable 'c-indent-offset 2)
+  (set-variable 'indent-tabs-mode nil)
+) ; end of (defun my-sh-mode-common-hook ()
+
+(add-hook 'sh-mode-hook 'my-sh-mode-common-hook)
+
 
 
 (defun my-html-mode-common-hook ()
