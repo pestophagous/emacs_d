@@ -571,6 +571,8 @@ color-theme-xp) )
     (setq mybuild-command "subsurface/scripts/sbuild.sh")
     (setq mybuild-dir "/home/myself/Documents/SHARED/gitsubsurf/"))
 
+(setq mybuild-command "/opt/repos/priv-dots/cdvv/bashies/build1.sh")
+
 (defun sucompile ()
 	(interactive)
 	(progn
