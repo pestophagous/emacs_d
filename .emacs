@@ -520,6 +520,41 @@ color-theme-xp) )
   )
 )
 
+;;  for bazelrc
+;;    along with.....
+;;             sudo sysctl fs.inotify.max_user_watches=16777215
+;;
+;; ################################################################################
+;; # LOCAL DEVELOPER CHOICES
+;; ################################################################################
+
+;; # found these 'startup' things here: https://github.com/tensorflow/models/issues/195
+;; startup --batch_cpu_scheduling
+;; startup --io_nice_level 3
+;; startup --max_idle_secs=0
+;; startup --watchfs
+
+
+;; build -c dbg
+;; build --verbose_failures
+;; build --jobs 6 --ram_utilization_factor 50  # this line from https://github.com/tensorflow/models/issues/195
+
+;; test -c dbg
+;; test --test_output=errors
+;; test --verbose_failures
+
+
+;; build --noforce_pic
+;; test --noforce_pic
+;; build --dynamic_mode off
+;; test --dynamic_mode off
+;; #build --linkopt="-static"
+;; #test --linkopt="-static"
+
+
+;; # END LOCAL
+;; ###-----------------------------------------------------------------------------
+
 
 
 (setq-default line-spacing 5) ; putting this next to build commands because i use them all in *scratch*, too
