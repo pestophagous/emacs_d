@@ -539,8 +539,6 @@ color-theme-xp) )
 (defun sucompile ()
 	(interactive)
 	(progn
-	  (save-some-buffers 1)
-	  (setq mybuild-command (concat "go run " buffer-file-name))
 		(setq save-pre-dir default-directory)
 		(setq default-directory mybuild-dir)
 		(compile mybuild-command)
@@ -550,7 +548,7 @@ color-theme-xp) )
 		;(switch-to-buffer-other-window "*compilation*")
 		;(myuser-filter-warnings)
 		)
-	;(chase-comp)
+	(chase-comp)
 )
 
 
@@ -579,15 +577,8 @@ color-theme-xp) )
   ; the "save-excursion" does not seem to successfully put me back in the file i was editing during compilation.
   ;(save-excursion
     (progn
-      ;(switch-to-buffer-other-window "*compilation*")
-
-(switch-to-buffer-other-window "*compilation*")
-(goto-line 5)
-
- (recenter-top-bottom)
-(other-window 1)
-      
-;(myuser-filter-warnings)
+      (switch-to-buffer-other-window "*compilation*")
+      (myuser-filter-warnings)
       ;(shell-command "cp file_a.cpp file_b.cpp")
 
 ;; >>>>>  NOTE: this "other-window" call **does** appear to put the cursor back where I like <<<<<<<<<<<<<
@@ -643,23 +634,11 @@ color-theme-xp) )
 ; if you have what you need in buffer list, then:
 ;  M-x ibuffer  (then press 'h' for help. options given to mark, then regexp, then save)
 
-;(require 'package) ;; You might already have this line
-;(add-to-list 'package-archives
-;             '("melpa" . "https://melpa.org/packages/"))
-
-;(package-initialize) ;; You might already have this line
-
-(setq compilation-window-height 8)
-
-(setq mybuild-command "go run 01_data.go")
-
-
-(setq mybuild-dir "C:/Users/kk/marzo/repos/priv-dots/gotlk17_15x/")
 
 (menu-bar-mode -1)
- (tool-bar-mode -1)
+(tool-bar-mode -1)
 
-(setq frame-title-format "%b")
+;(setq frame-title-format "%b")
 
 (setq linum-disabled-modes-list '(eshell-mode wl-summary-mode compilation-mode))
 
