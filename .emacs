@@ -299,6 +299,7 @@ color-theme-xp) )
   ; i went nuts and pasted in anything about tabs that i found.
   ; at some point i should find out if all these symbols even exist or not
   (setq tab-width 2)
+  (setq sh-basic-offset 2)
   (setq c-tab-width 2)
   (setq tab-always-indent t)
   (setq c-tab-always-indent t)
