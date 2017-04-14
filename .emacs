@@ -279,6 +279,8 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("\\.bzl$" . python-mode))
 (add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
 
+(add-to-list 'auto-mode-alist '("bazelrc$" . conf-mode))
+
 (defun my-protobuf-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
   ; at some point i should find out if all these symbols even exist or not
