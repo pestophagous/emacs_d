@@ -82,12 +82,12 @@
 (require 'dos)
 (require 'markdown-mode)
 (require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.pbtxt$" . yaml-mode))
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))
-(add-to-list 'auto-mode-alist '("\\.pbtxt$" . protobuf-mode))
 
 
 
