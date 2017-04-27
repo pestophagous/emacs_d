@@ -281,6 +281,7 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
 
 (add-to-list 'auto-mode-alist '("bazelrc$" . conf-mode))
+(add-to-list 'auto-mode-alist '("Doxyfile$" . conf-mode))
 
 (defun my-protobuf-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
