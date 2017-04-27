@@ -258,6 +258,18 @@ color-theme-xp) )
   (lambda()
     (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
+(require 'clang-format)
+;; clang-format Hook function
+(defun clang-format-before-save ()
+  "Add this to .emacs to clang-format on save
+ (add-hook 'before-save-hook 'clang-format-before-save)."
+
+  (interactive)
+  (when (eq major-mode 'c++-mode) (clang-format-buffer)))
+
+;; Install hook to use clang-format on save
+(add-hook 'before-save-hook 'clang-format-before-save)
+
 (defun my-python-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
   ; at some point i should find out if all these symbols even exist or not
