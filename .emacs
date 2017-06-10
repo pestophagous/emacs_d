@@ -28,6 +28,12 @@
     (delete-trailing-whitespace)
 )
 
+(defun fs ()
+  (interactive)
+  ; runs an immediate full check on the file (before you even edit it)
+  (flyspell-buffer)
+)
+
 (defun mywin ()
   (interactive)
   (set-window-dedicated-p (get-buffer-window "*gud*") nil)
@@ -89,10 +95,14 @@
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))
 
-
+(add-hook 'protobuf-mode-hook
+          (lambda () (flyspell-prog-mode)))
 
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+
+(add-hook 'qml-mode-hook
+          (lambda () (flyspell-prog-mode)))
 
 (require 'window-number)
 (window-number-mode)
@@ -244,6 +254,9 @@ color-theme-xp) )
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 (add-hook 'c-mode-common-hook 'fci-mode)
 
+(add-hook 'c-mode-common-hook
+          (lambda () (flyspell-prog-mode)))
+
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.ipp?$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . c++-mode))
@@ -295,6 +308,11 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("bazelrc$" . conf-mode))
 (add-to-list 'auto-mode-alist '("Doxyfile$" . conf-mode))
 
+(add-hook 'python-mode-hook
+          (lambda () (flyspell-prog-mode)))
+(add-hook 'conf-mode-hook
+          (lambda () (flyspell-prog-mode)))
+
 (defun my-protobuf-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
   ; at some point i should find out if all these symbols even exist or not
@@ -328,7 +346,8 @@ color-theme-xp) )
 
 (add-hook 'sh-mode-hook 'my-sh-mode-common-hook)
 
-
+(add-hook 'sh-mode-hook
+          (lambda () (flyspell-prog-mode)))
 
 (defun my-html-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
@@ -367,6 +386,8 @@ color-theme-xp) )
 )
 (add-hook 'go-mode-hook 'my-go-mode-settings)
 
+(add-hook 'go-mode-hook
+          (lambda () (flyspell-prog-mode)))
 
 (defun sacha/increase-font-size ()
   (interactive)
