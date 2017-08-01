@@ -103,6 +103,9 @@
 
 (add-hook 'qml-mode-hook
           (lambda () (flyspell-prog-mode)))
+(add-hook 'qml-mode-hook
+          (lambda ()   (set-fill-column 95)))
+(add-hook 'qml-mode-hook 'fci-mode)
 
 (require 'window-number)
 (window-number-mode)
@@ -306,6 +309,7 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
 
 (add-to-list 'auto-mode-alist '("bazelrc$" . conf-mode))
+(add-to-list 'auto-mode-alist '("bazel.rc$" . conf-mode))
 (add-to-list 'auto-mode-alist '("Doxyfile$" . conf-mode))
 
 (add-hook 'python-mode-hook
