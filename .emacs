@@ -84,6 +84,7 @@
 (require 'fill-column-indicator) ; To toggle, use the command: fci-mode
 
 (require 'show-wspace) ; ~/.emacs.d/show-wspace.el
+(require 'list-register)
 
 (require 'dos)
 (require 'markdown-mode)
@@ -130,9 +131,10 @@
 
 (setq color-theme-is-global nil) ; so that each FRAME can have own color
 
-; the next line should show a CARET, then a capital X, then r. in a browser and in bash console i only see "r"
-(global-set-key (kbd "r") 'revert-no-asking)
+; the next line should show a CARET, then a capital X, then o. in a browser and in bash console i only see "o"
+(global-set-key (kbd "o") 'revert-no-asking) ; letter "o" for open. re-open file from disk.
 
+(global-set-key (kbd "C-x r v") 'list-register) ; "registers view"
 
 (global-set-key (kbd "w") 'browse-url)
 
