@@ -47,6 +47,8 @@
 	;(color-theme-deep-blue)
 )
 
+; with some cleanup, this possibly belongs here:
+; https://stackoverflow.com/questions/37642626/how-to-clear-the-input-output-buffer-when-when-execute-gud-run-in-emacs
 (defun eio ()
   (interactive)
   (switch-to-buffer-other-window "*input/output of *")
