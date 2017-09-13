@@ -90,6 +90,7 @@
 
 (require 'dos)
 (require 'markdown-mode)
+(require 'coffee-mode)
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.pbtxt$" . yaml-mode))
 
