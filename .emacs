@@ -521,6 +521,8 @@ color-theme-xp) )
 	 "warning C4481: nonstandard extension used: override specifier 'override'"
 	 "warning C4996: 'wxDocument::GetPrintableName': was declared deprecated"
 	 "boost-1_50\\\\boost\\\\variant\\\\variant.hpp(1247)"
+	 "protobuf/src: warning: directory does not exist."
+	 "googleapis/googleapis/.: warning: directory does not exist."
        )
 )
 
