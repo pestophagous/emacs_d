@@ -78,6 +78,7 @@
   (set-window-dedicated-p (selected-window) t)
 )
 
+(require 'py-yapf)
 (require 'go-mode-autoloads)
 (require 'go-dlv)
 
@@ -308,6 +309,7 @@ color-theme-xp) )
 ) ; end of (defun my-python-mode-common-hook ()
 
 (add-hook 'python-mode-hook 'my-python-mode-common-hook)
+(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 
 ; BAZEL BUILD syntax highlights like python:
 (add-to-list 'auto-mode-alist '("\\.bzl$" . python-mode))
