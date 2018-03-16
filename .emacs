@@ -626,6 +626,9 @@ color-theme-xp) )
 
 (setq-default line-spacing 5) ; putting this next to build commands because i use them all in *scratch*, too
 
+(setq mybuild-command "/opt/repos/priv-dots/homebinpath/bazel-emacs-make.sh")
+(setq mybuild-dir "/home/someone/ml/hello-bazel/") ; MUST have trailing slash "/" in emacs
+
 (when (string= system-name winmachine1)
     (setq mybuild-command "build.bat -j8 --retest")
     (setq mybuild-dir "G:/SLX5/SuperLabProject/build/scons/"))
