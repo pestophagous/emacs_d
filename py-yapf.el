@@ -47,7 +47,8 @@ Note that `--in-place' is used by default."
 (defun py-yapf-buffer ()
   "Uses the \"yapf\" tool to reformat the current buffer."
   (interactive)
-  (if (not (string-match-p (regexp-quote "BUILD") buffer-file-name))
+  (if (and (not (string-match-p (regexp-quote "BUILD") buffer-file-name))
+      (not (string-match-p (regexp-quote "WORKSPACE") buffer-file-name)))
        (py-yapf--call)
        nil)
 )
