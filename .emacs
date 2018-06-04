@@ -552,6 +552,8 @@ color-theme-xp) )
   (if (or (string-prefix-p "goland/" just-a-line)
 	  (string-prefix-p "drbaldfkgjx" just-a-line)
 	  (string-prefix-p "gjtirgr" just-a-line)
+	  (string-prefix-p "SUBCOMMAND" just-a-line) ; for bazel build -s --[no]subcommands [-s]
+	  (string-prefix-p ">>>>>>>>>" just-a-line) ; for bazel build -s --[no]subcommands [-s]
 	  (string-prefix-p "/home/someone" just-a-line)
 	  )
       t
