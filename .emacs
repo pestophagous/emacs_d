@@ -112,6 +112,9 @@
           (lambda ()   (set-fill-column 95)))
 (add-hook 'qml-mode-hook 'fci-mode)
 
+;(add-to-list 'load-path "/opt/repos/matlab-emacs-src") ; git clone git://git.code.sf.net/p/matlab-emacs/src
+;(load-library "matlab-load")
+
 (require 'window-number)
 (window-number-mode)
 (window-number-meta-mode)
