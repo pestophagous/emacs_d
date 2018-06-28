@@ -294,6 +294,9 @@ color-theme-xp) )
 
 ;; Install hook to use clang-format on save
 (add-hook 'before-save-hook 'clang-format-before-save)
+;; For some sessions, if you want to disable the above line AFTER already
+;; launching emacs, then paste the following into *scratch* and run it:
+;;    (remove-hook 'before-save-hook 'clang-format-before-save)
 
 (defun my-python-mode-common-hook ()
   ; i went nuts and pasted in anything about tabs that i found.
