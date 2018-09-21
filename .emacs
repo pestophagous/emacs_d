@@ -23,6 +23,15 @@
 
 (setq-default fill-column 80)  ; 80 for google style
 
+; thanks to: https://stackoverflow.com/a/24857101/10278
+(defun untabify-conditionally ()
+  (unless (or (derived-mode-p 'makefile-gmake-mode)
+              (derived-mode-p 'makefile-mode)
+              (derived-mode-p 'go-mode))
+    (untabify (point-min) (point-max))))
+
+(add-hook 'before-save-hook 'untabify-conditionally)
+
 (defun dtw ()
 	(interactive)
     (delete-trailing-whitespace)
