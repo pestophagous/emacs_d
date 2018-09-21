@@ -6,7 +6,7 @@
 (put 'upcase-region 'disabled nil)
 
 (setq load-path
-	(cons "~/.emacs.d/lisp" load-path))
+        (cons "~/.emacs.d/lisp" load-path))
 
 
 
@@ -33,7 +33,7 @@
 (add-hook 'before-save-hook 'untabify-conditionally)
 
 (defun dtw ()
-	(interactive)
+        (interactive)
     (delete-trailing-whitespace)
 )
 
@@ -51,9 +51,9 @@
 )
 
 (defun gmw ()
-	(interactive)
-	(gdb-many-windows nil)
-	;(color-theme-deep-blue)
+        (interactive)
+        (gdb-many-windows nil)
+        ;(color-theme-deep-blue)
 )
 
 ; with some cleanup, this possibly belongs here:
@@ -260,11 +260,11 @@ color-theme-xp) )
 
  (font-lock-add-keywords
   nil '(;;  new C++11 keywords. (each string literal is a REGEX)
-	("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
-	("\\<\\(char16_t\\|char32_t\\)\\>" . font-lock-keyword-face)
-	;; user-defined types (rather project-specific) (kept as an example of how to do this)
-	("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
-	))
+        ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
+        ("\\<\\(char16_t\\|char32_t\\)\\>" . font-lock-keyword-face)
+        ;; user-defined types (rather project-specific) (kept as an example of how to do this)
+        ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
+        ))
 ) ;  end of (defun my-c-mode-common-hook ()
 
 ;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
@@ -519,28 +519,28 @@ color-theme-xp) )
 
 (setq myuser-compiler-warning-exclusions
       '(
-	 "google_tools/gmock/built_libs/include"
-	 "3.0.9/built_libs/include/mysql"
-	 "external/databaselayer/src"
-	 "external/databaselayer/include"
-	 "boost/install/include/boost-1_42/boost"
-	 "boost/install/include/boost-1_49/boost"
-	 "usr/local/Qt-5.1.1/include"
-	 "wxWidgets/2.9/include/wx/wxcrtvararg.h"
-	 "scons-out/dbg/python_kingdom/mach-o_dylib_flattener.sh"
-	 "frame size too large for reliable stack checking"
-	 "try reducing the number of local variables"
-	 "//////"
-	 "/opt/qt/bin/macdeployqt"
-	 "ignoring #pragma warning"
-	 "src/liblsl/include/lsl_cpp.h"
-	 "src/Rand/die.c"
-	 "warning C4275: non dll-interface class"
-	 "warning C4481: nonstandard extension used: override specifier 'override'"
-	 "warning C4996: 'wxDocument::GetPrintableName': was declared deprecated"
-	 "boost-1_50\\\\boost\\\\variant\\\\variant.hpp(1247)"
-	 "protobuf/src: warning: directory does not exist."
-	 "googleapis/googleapis/.: warning: directory does not exist."
+         "google_tools/gmock/built_libs/include"
+         "3.0.9/built_libs/include/mysql"
+         "external/databaselayer/src"
+         "external/databaselayer/include"
+         "boost/install/include/boost-1_42/boost"
+         "boost/install/include/boost-1_49/boost"
+         "usr/local/Qt-5.1.1/include"
+         "wxWidgets/2.9/include/wx/wxcrtvararg.h"
+         "scons-out/dbg/python_kingdom/mach-o_dylib_flattener.sh"
+         "frame size too large for reliable stack checking"
+         "try reducing the number of local variables"
+         "//////"
+         "/opt/qt/bin/macdeployqt"
+         "ignoring #pragma warning"
+         "src/liblsl/include/lsl_cpp.h"
+         "src/Rand/die.c"
+         "warning C4275: non dll-interface class"
+         "warning C4481: nonstandard extension used: override specifier 'override'"
+         "warning C4996: 'wxDocument::GetPrintableName': was declared deprecated"
+         "boost-1_50\\\\boost\\\\variant\\\\variant.hpp(1247)"
+         "protobuf/src: warning: directory does not exist."
+         "googleapis/googleapis/.: warning: directory does not exist."
        )
 )
 
@@ -553,24 +553,24 @@ color-theme-xp) )
 ; character positions where an exclusion string was matched.
 (defun matches-mywarning-criteria (just-a-line)
     (if (char-equal 47 (car (string-to-list just-a-line) ))
-	t
+        t
       nil) )
 
 (when (string= system-name winmachine1)
 (defun matches-mywarning-criteria (just-a-line)
     (if (char-equal 103 (car (string-to-list just-a-line) )) ; 103 is 'g', the root drive letter for the build
-	t
+        t
       nil) ))
 
 
 (defun matches-mywarning-criteriaXX (just-a-line)
   (if (or (string-prefix-p "goland/" just-a-line)
-	  (string-prefix-p "drbaldfkgjx" just-a-line)
-	  (string-prefix-p "gjtirgr" just-a-line)
-	  (string-prefix-p "SUBCOMMAND" just-a-line) ; for bazel build -s --[no]subcommands [-s]
-	  (string-prefix-p ">>>>>>>>>" just-a-line) ; for bazel build -s --[no]subcommands [-s]
-	  (string-prefix-p "/home/someone" just-a-line)
-	  )
+          (string-prefix-p "drbaldfkgjx" just-a-line)
+          (string-prefix-p "gjtirgr" just-a-line)
+          (string-prefix-p "SUBCOMMAND" just-a-line) ; for bazel build -s --[no]subcommands [-s]
+          (string-prefix-p ">>>>>>>>>" just-a-line) ; for bazel build -s --[no]subcommands [-s]
+          (string-prefix-p "/home/someone" just-a-line)
+          )
       t
     nil))
 
@@ -578,14 +578,14 @@ color-theme-xp) )
 (defun custom-analyze-one-compiler-line (just-a-line)
   (progn
     (if (matches-mywarning-criteriaXX just-a-line)
-	(if (= 0 (reduce '+ (map 'list (lambda (bad-string) (if (string-match  bad-string just-a-line ) (+ 1 (string-match bad-string  just-a-line  )) 0 ))  myuser-compiler-warning-exclusions  ) ))
-	    (progn
-	      (end-of-buffer)
-	      (insert just-a-line)
-	      (insert "\n")
-	    )
-	    nil)
-	nil)
+        (if (= 0 (reduce '+ (map 'list (lambda (bad-string) (if (string-match  bad-string just-a-line ) (+ 1 (string-match bad-string  just-a-line  )) 0 ))  myuser-compiler-warning-exclusions  ) ))
+            (progn
+              (end-of-buffer)
+              (insert just-a-line)
+              (insert "\n")
+            )
+            nil)
+        nil)
   )
 )
 
@@ -662,18 +662,18 @@ color-theme-xp) )
 (setq mybuild-command "/opt/repos/priv-dots/cdvv/bashies/build1.sh")
 
 (defun sucompile ()
-	(interactive)
-	(progn
-		(setq save-pre-dir default-directory)
-		(setq default-directory mybuild-dir)
-		(compile mybuild-command)
-		(setq default-directory save-pre-dir)
+        (interactive)
+        (progn
+                (setq save-pre-dir default-directory)
+                (setq default-directory mybuild-dir)
+                (compile mybuild-command)
+                (setq default-directory save-pre-dir)
 
-		; The following is ALMOST correct. The next two calls WOULD do what I want if I could make them WAIT until compilation is DONE.
-		;(switch-to-buffer-other-window "*compilation*")
-		;(myuser-filter-warnings)
-		)
-	(chase-comp)
+                ; The following is ALMOST correct. The next two calls WOULD do what I want if I could make them WAIT until compilation is DONE.
+                ;(switch-to-buffer-other-window "*compilation*")
+                ;(myuser-filter-warnings)
+                )
+        (chase-comp)
 )
 
 
@@ -695,9 +695,9 @@ color-theme-xp) )
 (defun my-routine-to-execute-upon-compile-completion (buffer string)
   ; we have to check for 'compilation-mode because OTHER EMACS FEATURES use the compilation hooks!
   ; That caught me by surprise! but see here: https://lists.gnu.org/archive/html/help-gnu-emacs/2008-08/msg00158.html
-  ; From:	Kevin Rodgers
-  ; Subject:	Re: compilation/grep buffer advice
-  ; Date:	Thu, 07 Aug 2008 21:19:23 -0600
+  ; From:       Kevin Rodgers
+  ; Subject:    Re: compilation/grep buffer advice
+  ; Date:       Thu, 07 Aug 2008 21:19:23 -0600
   (if (eq major-mode 'compilation-mode)
   ; the "save-excursion" does not seem to successfully put me back in the file i was editing during compilation.
   ;(save-excursion
