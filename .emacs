@@ -22,6 +22,7 @@
 (desktop-save-mode 1)
 
 (setq-default fill-column 80)  ; 80 for google style
+(setq fill-column 80)  ; 80 for google style
 
 ; thanks to: https://stackoverflow.com/a/24857101/10278
 (defun untabify-conditionally ()
@@ -118,7 +119,7 @@
 (add-hook 'qml-mode-hook
           (lambda () (flyspell-prog-mode)))
 (add-hook 'qml-mode-hook
-          (lambda ()   (set-fill-column 95)))
+          (lambda ()   (set-fill-column 80)))
 (add-hook 'qml-mode-hook 'fci-mode)
 
 ;(add-to-list 'load-path "/opt/repos/matlab-emacs-src") ; git clone git://git.code.sf.net/p/matlab-emacs/src
