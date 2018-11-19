@@ -300,7 +300,7 @@ color-theme-xp) )
  (add-hook 'before-save-hook 'clang-format-before-save)."
 
   (interactive)
-  (when (eq major-mode 'c++-mode) (clang-format-buffer)))
+  (when (or (eq major-mode 'c++-mode) (eq major-mode 'protobuf-mode)) (clang-format-buffer)))
 
 ;; Install hook to use clang-format on save
 (add-hook 'before-save-hook 'clang-format-before-save)
