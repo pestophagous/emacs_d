@@ -122,6 +122,21 @@
           (lambda ()   (set-fill-column 80)))
 (add-hook 'qml-mode-hook 'fci-mode)
 
+; using https://github.com/jesperhh/qmlfmt
+; with my own instructions as documented here:
+;    https://gist.github.com/pestophagous/8efbfcde8539c0af3dcea5f46e2cf46d
+(defun qmlfmt-hook ()
+  (if buffer-file-name
+      (progn
+        (if (derived-mode-p 'qml-mode)
+            (progn
+              (setq cmd "/opt/repos/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
+              (shell-command (concat cmd (prin1-to-string buffer-file-name)))
+              (message "ran homebinpath/qmlfmt on:  %s" buffer-file-name)
+              (revert-buffer 'ignore-auto 'noconfirm))))))
+
+(add-hook 'after-save-hook 'qmlfmt-hook)
+
 ;(add-to-list 'load-path "/opt/repos/matlab-emacs-src") ; git clone git://git.code.sf.net/p/matlab-emacs/src
 ;(load-library "matlab-load")
 
