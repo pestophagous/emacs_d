@@ -775,6 +775,12 @@ color-theme-xp) )
 ; if you have what you need in buffer list, then:
 ;  M-x ibuffer  (then press 'h' for help. options given to mark, then regexp, then save)
 
+; some shortcuts for TABLE EDITING:
+;; (table-insert "3" "3" "15" "1")
+;; (table-insert "4" "4" "15" "1")
+;; (table-insert-column 1)
+;; (table-span-cell 'right)
+;; (table-span-cell 'below)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
