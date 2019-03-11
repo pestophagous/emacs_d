@@ -557,6 +557,7 @@ color-theme-xp) )
          "boost-1_50\\\\boost\\\\variant\\\\variant.hpp(1247)"
          "protobuf/src: warning: directory does not exist."
          "googleapis/googleapis/.: warning: directory does not exist."
+         "Qualifying with unknown namespace/class"  ; Qt linguist lupdate output (until further news from i18n team)
        )
 )
 
