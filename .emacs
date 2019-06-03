@@ -791,3 +791,6 @@ color-theme-xp) )
 (setq linum-disabled-modes-list '(eshell-mode wl-summary-mode compilation-mode))
 
 (defun linum-on () (unless (or (minibufferp) (member major-mode linum-disabled-modes-list)) (linum-mode 1)))
+
+(add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
+(find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")

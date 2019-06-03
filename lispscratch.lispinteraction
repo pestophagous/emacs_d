@@ -1,0 +1,12 @@
+
+
+(add-hook 'after-save-hook 'qmlfmt-hook)
+(remove-hook 'after-save-hook 'qmlfmt-hook)
+
+
+(add-hook 'before-save-hook 'clang-format-before-save)
+(remove-hook 'before-save-hook 'clang-format-before-save)
+
+
+(setq mybuild-dir "/home/someone/proj/")
+
