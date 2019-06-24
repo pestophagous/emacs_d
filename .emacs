@@ -9,14 +9,14 @@
         (cons "~/.emacs.d/lisp" load-path))
 
 
-
-
-
-
-
-(setq winmachine1 "KK-PC") ; DNC DNC DNC DNC BOOTCAMP-W7")
+(setq winmachine1 "BOOTCAMP-W7-PC")
 
 (setq debmachine1 "deb1.m.home")
+
+
+(setq desktop-path '("~/.emacs.d/" "~" "."))
+
+
 
 (setq desktop-restore-eager 25) ; restore N buffers immediately, the rest lazily. [otherwise ALL buffers load by default]
 (desktop-save-mode 1)
