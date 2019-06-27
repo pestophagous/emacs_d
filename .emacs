@@ -131,8 +131,9 @@
         (if (derived-mode-p 'qml-mode)
             (progn
               (setq cmd "/opt/repos/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
-              (shell-command (concat cmd (prin1-to-string buffer-file-name)))
-              (message "ran homebinpath/qmlfmt on:  %s" buffer-file-name)
+              (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+              (shell-command fullcmd)
+              (message "ran command: %s" fullcmd)
               (revert-buffer 'ignore-auto 'noconfirm))))))
 
 (add-hook 'after-save-hook 'qmlfmt-hook)
