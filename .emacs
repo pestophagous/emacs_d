@@ -122,6 +122,20 @@
           (lambda ()   (set-fill-column 80)))
 (add-hook 'qml-mode-hook 'fci-mode)
 
+(defun qmlfmt-hook-innards ()
+  (progn
+    (setq cmd "/opt/repos/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+    (shell-command fullcmd)
+    (message "ran command: %s" fullcmd)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun qmlfmt-i ()
+  (interactive)
+  (if buffer-file-name
+      (progn
+        (qmlfmt-hook-innards))))
+
 ; using https://github.com/jesperhh/qmlfmt
 ; with my own instructions as documented here:
 ;    https://gist.github.com/pestophagous/8efbfcde8539c0af3dcea5f46e2cf46d
@@ -129,12 +143,7 @@
   (if buffer-file-name
       (progn
         (if (derived-mode-p 'qml-mode)
-            (progn
-              (setq cmd "/opt/repos/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
-              (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
-              (shell-command fullcmd)
-              (message "ran command: %s" fullcmd)
-              (revert-buffer 'ignore-auto 'noconfirm))))))
+            (qmlfmt-hook-innards)))))
 
 (add-hook 'after-save-hook 'qmlfmt-hook)
 
