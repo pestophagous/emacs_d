@@ -10,3 +10,5 @@
 
 (setq mybuild-dir "/home/someone/proj/")
 
+(setq mybuild-command "./build.sh") ; rm humbledrive1 ; go build -gcflags=all="-N -l" humbledrive1.go
+(setq mybuild-dir "/home/username/mygo/someproject/") ; contains build.sh
