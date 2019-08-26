@@ -150,6 +150,11 @@
 ;(add-to-list 'load-path "/opt/repos/matlab-emacs-src") ; git clone git://git.code.sf.net/p/matlab-emacs/src
 ;(load-library "matlab-load")
 
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist
+      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+
+
 (require 'window-number)
 (window-number-mode)
 (window-number-meta-mode)
