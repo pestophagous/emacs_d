@@ -1,12 +1,17 @@
 
-
+; ---------- QML QML QML ----------
 (add-hook 'after-save-hook 'qmlfmt-hook)
 (remove-hook 'after-save-hook 'qmlfmt-hook)
 
-
+; ---------- CPP CLANG-FORMAT ----------
 (add-hook 'before-save-hook 'clang-format-before-save)
 (remove-hook 'before-save-hook 'clang-format-before-save)
 
+; ---------- PYTHON YAPF ----------
+(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+(remove-hook 'python-mode-hook 'py-yapf-enable-on-save)
 
 (setq mybuild-dir "/home/someone/proj/")
 
+(setq mybuild-command "./build.sh") ; rm humbledrive1 ; go build -gcflags=all="-N -l" humbledrive1.go
+(setq mybuild-dir "/home/username/mygo/someproject/") ; contains build.sh
