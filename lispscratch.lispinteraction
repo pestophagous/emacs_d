@@ -5,7 +5,11 @@
 
 ; ---------- CPP CLANG-FORMAT ----------
 (add-hook 'before-save-hook 'clang-format-before-save)
+(clang-format-before-save untabify-conditionally)
+
 (remove-hook 'before-save-hook 'clang-format-before-save)
+(untabify-conditionally)
+
 
 ; ---------- PYTHON YAPF ----------
 (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
