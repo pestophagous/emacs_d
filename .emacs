@@ -798,6 +798,9 @@ color-theme-xp) )
 ;; (table-span-cell 'right)
 ;; (table-span-cell 'below)
 
+; SEARCH BY WHOLE WORD MATCH:
+; (( M-s w )) then the WORD, then C-s, C-s, C-s ... as usual
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
