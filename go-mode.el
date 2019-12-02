@@ -2291,6 +2291,14 @@ description at POINT."
   (interactive "d")
   (godef-jump point t))
 
+(defun jj (point)
+  (interactive "d")
+  (godef-jump point t))
+
+(defun j (point)
+  (interactive "d")
+  (godef-jump point nil))
+
 (defun go--goto-line (line)
   (goto-char (point-min))
   (forward-line (1- line)))
