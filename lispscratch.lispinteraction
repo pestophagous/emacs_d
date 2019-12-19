@@ -10,6 +10,8 @@
 (remove-hook 'before-save-hook 'clang-format-before-save)
 (untabify-conditionally)
 
+(setq clang-format-executable "clang-format-6.0")
+(setq clang-format-executable "clang-format-3.8")
 
 ; ---------- PYTHON YAPF ----------
 (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
