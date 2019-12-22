@@ -810,5 +810,24 @@ color-theme-xp) )
 
 (defun linum-on () (unless (or (minibufferp) (member major-mode linum-disabled-modes-list)) (linum-mode 1)))
 
+(defcustom smart-to-ascii '(("\x201C" . "\"")
+                            ("\x201D" . "\"")
+                            ("\x2018" . "'")
+                            ("\x2019" . "'")
+                            ;; ellipses:
+                            ("\x2026" . "...")
+                            ;; en-dash
+                            ("\x2013" . "-")
+                            ;; em-dash
+                            ("\x2014" . "-"))
+  ""
+  :type '(repeat (cons (string :tag "Smart Character  ")
+                       (string :tag "Ascii Replacement"))))
+
+(defun replace-smart-to-ascii (beg end)
+  (interactive "r")
+  (format-replace-strings smart-to-ascii
+                          nil beg end))
+
 (add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
