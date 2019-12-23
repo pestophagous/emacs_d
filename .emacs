@@ -88,6 +88,7 @@
   (set-window-dedicated-p (selected-window) t)
 )
 
+(require 'qmake-mode)
 (require 'py-yapf)
 (require 'go-mode-autoloads)
 (require 'go-dlv)
