@@ -1,4 +1,7 @@
 
+(setq sort-fold-case nil)
+(setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
+
 ; ---------- QML QML QML ----------
 (add-hook 'after-save-hook 'qmlfmt-hook)
 (remove-hook 'after-save-hook 'qmlfmt-hook)

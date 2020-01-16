@@ -125,7 +125,7 @@
 
 (defun qmlfmt-hook-innards ()
   (progn
-    (setq cmd "/opt/repos/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
+    (setq cmd "/opt/repositories/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
     (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
     (shell-command fullcmd)
     (message "ran command: %s" fullcmd)
@@ -676,9 +676,6 @@ color-theme-xp) )
 
 
 (setq-default line-spacing 5) ; putting this next to build commands because i use them all in *scratch*, too
-
-(setq mybuild-command "/opt/repos/priv-dots/homebinpath/bazel-emacs-make.sh")
-(setq mybuild-dir "/home/someone/ml/hello-bazel/") ; MUST have trailing slash "/" in emacs
 
 (when (string= system-name winmachine1)
     (setq mybuild-command "build.bat -j8 --retest")
