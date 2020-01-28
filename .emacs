@@ -831,6 +831,12 @@ color-theme-xp) )
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
 
 ; MELPA begin
+
+; if you are still on ubuntu 16 (or anywhere with emacs 24 or below):
+;   sudo add-apt-repository ppa:kelleyk/emacs
+;   sudo apt-get update
+;   sudo apt-get install emacs25
+
 (setq package-user-dir "~/.emacs.d/lisp/elpa") ; https://stackoverflow.com/a/15735931/10278
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
