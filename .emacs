@@ -829,3 +829,10 @@ color-theme-xp) )
 
 (add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
+
+; MELPA begin
+(setq package-user-dir "~/.emacs.d/lisp/elpa") ; https://stackoverflow.com/a/15735931/10278
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+; MELPA end
