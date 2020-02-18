@@ -89,6 +89,9 @@
 )
 
 (require 'qmake-mode)
+
+(add-to-list 'auto-mode-alist '("\\.pri$" . qmake-mode))
+
 (require 'py-yapf)
 (require 'go-mode-autoloads)
 (require 'go-dlv)
