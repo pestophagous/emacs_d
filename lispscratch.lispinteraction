@@ -2,8 +2,12 @@
 (setq sort-fold-case nil)
 (setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
 
+; ---------- GOLANG ----------
+(add-hook    'before-save-hook 'gofmt-before-save)
+(remove-hook 'before-save-hook 'gofmt-before-save)
+
 ; ---------- QML QML QML ----------
-(add-hook 'after-save-hook 'qmlfmt-hook)
+(add-hook    'after-save-hook 'qmlfmt-hook)
 (remove-hook 'after-save-hook 'qmlfmt-hook)
 
 ; ---------- CPP CLANG-FORMAT ----------
