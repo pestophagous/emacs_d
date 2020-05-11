@@ -12,10 +12,11 @@
 
 ; ---------- CPP CLANG-FORMAT ----------
 (add-hook 'before-save-hook 'clang-format-before-save)
-(clang-format-before-save untabify-conditionally)
+(add-hook 'before-save-hook 'untabify-conditionally)
 
 (remove-hook 'before-save-hook 'clang-format-before-save)
-(untabify-conditionally)
+(remove-hook 'before-save-hook 'untabify-conditionally)
+
 
 (setq clang-format-executable "clang-format-6.0")
 (setq clang-format-executable "clang-format-3.8")
