@@ -361,6 +361,23 @@ color-theme-xp) )
 (add-hook 'python-mode-hook 'my-python-mode-common-hook)
 (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 
+(defun autopepeight-hook-innards ()
+  (progn
+    ; (setq cmd "/opt/repositories/client/redacted/redacted/env/bin/autopep8 -i ") ; keep trailing space in cmd
+    (setq cmd "autopep8 -i ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+    (shell-command fullcmd)
+    (message "ran command: %s" fullcmd)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun autopepeight-hook ()
+  (if buffer-file-name
+      (progn
+        (if (derived-mode-p 'python-mode)
+            (autopepeight-hook-innards)))))
+
+(add-hook 'after-save-hook 'autopepeight-hook)
+
 ; BAZEL BUILD syntax highlights like python:
 (add-to-list 'auto-mode-alist '("\\.bzl$" . python-mode))
 (add-to-list 'auto-mode-alist '("BUILD$" . python-mode))
