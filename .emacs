@@ -699,7 +699,8 @@ color-theme-xp) )
         (progn
                 (setq save-pre-dir default-directory)
                 (setq default-directory mybuild-dir)
-                (compile mybuild-command t) ; the 't' arg after mybuild-command lets compile be INTERACTIVE if (e.g.) it needs sudo password
+; Locally toggle the 't' arg as needed. Leave out when not needed, because it interferes with our compile-completion code!
+                (compile mybuild-command) ; t) ; the 't' arg after mybuild-command lets compile be INTERACTIVE if (e.g.) it needs sudo password
                 (setq default-directory save-pre-dir)
 
                 ; The following is ALMOST correct. The next two calls WOULD do what I want if I could make them WAIT until compilation is DONE.
