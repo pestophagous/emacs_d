@@ -5,6 +5,10 @@
 ;   http://stackoverflow.com/questions/10026221/enable-all-disabled-commands-permanently
 (put 'upcase-region 'disabled nil)
 
+; https://github.com/nex3/perspective-el/issues/64
+(when (not (fboundp 'make-variable-frame-local))
+  (defun make-variable-frame-local (variable) variable))
+
 (setq load-path
         (cons "~/.emacs.d/lisp" load-path))
 
@@ -558,9 +562,10 @@ color-theme-xp) )
 
 
 ; READJUST keyboard, since my Mac OS X SYSTEM PREFERENCES do remapping themselves...
-(setq mac-command-modifier 'ctrl)
+(setq mac-command-modifier 'control)
 
-(setq mac-option-modifier 'meta)
+;(setq mac-option-modifier 'meta)
+
 
 ; not sure why this suddenly became necessary on mac 10.10:
 (global-set-key '[(kp-delete)] 'delete-char)
