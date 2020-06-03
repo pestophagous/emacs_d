@@ -130,6 +130,9 @@
           (lambda ()   (set-fill-column 80)))
 (add-hook 'qml-mode-hook 'fci-mode)
 
+; to force it to get paths from bashrc:
+;    (setq cmd "/bin/bash -i /opt/repositories/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
+;    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " >> /Users/developer/this.txt 2>&1"))
 (defun qmlfmt-hook-innards ()
   (progn
     (setq cmd "/opt/repositories/priv-dots/homebinpath/qmlfmt ") ; keep trailing space in cmd
