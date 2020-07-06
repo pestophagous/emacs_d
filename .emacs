@@ -121,6 +121,29 @@
 (add-hook 'protobuf-mode-hook
           (lambda () (flyspell-prog-mode)))
 
+(defun sqlfmt-hook-innards ()
+  (progn
+    (setq cmd "/opt/repositories/priv-dots/homebinpath/fsqlf ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat (concat cmd (prin1-to-string buffer-file-name)) "  > 7bff3785ba33.sql ; mv 7bff3785ba33.sql ") (prin1-to-string buffer-file-name)))
+    (shell-command fullcmd)
+    ;(message "ran command: %s" fullcmd)
+    ;(message "mode: %s" major-mode)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun sqlfmt-i ()
+  (interactive)
+  (if buffer-file-name
+      (progn
+        (sqlfmt-hook-innards))))
+
+(defun sqlfmt-hook ()
+  (if buffer-file-name
+      (progn
+        (if (eq major-mode 'sql-mode)
+            (sqlfmt-hook-innards)))))
+
+(add-hook 'after-save-hook 'sqlfmt-hook)
+
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
