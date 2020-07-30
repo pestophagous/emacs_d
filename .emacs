@@ -1,3 +1,5 @@
+; NOTE: default windows config path:
+;  C:\Users\username\AppData\Roaming\.emacs.d\
 
 (load "cl-extra") ; makes Emacs Lisp have a greater degree of Common Lisp compatibility
 
