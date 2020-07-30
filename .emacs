@@ -897,3 +897,5 @@ color-theme-xp) )
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 ; MELPA end
+
+(message "DONE LOADING DOT-EMACS")
