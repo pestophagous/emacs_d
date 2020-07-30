@@ -242,7 +242,8 @@
 
 
 ; igrep-find uses find to recursively grep a directory
-(require 'igrep) ; ~/.emacs.d/igrep.el
+(when (not (eq system-type 'windows-nt))
+(require 'igrep)) ; ~/.emacs.d/igrep.el
 
 ; do not remember why i added this
 (require 'ring+) ; ~/.emacs.d/ring+.el
