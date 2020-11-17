@@ -884,6 +884,31 @@ color-theme-xp) )
   (format-replace-strings smart-to-ascii
                           nil beg end))
 
+(defun no-fmt ()
+  (interactive)
+  (progn
+    (remove-hook 'before-save-hook 'gofmt-before-save)
+    (remove-hook 'after-save-hook 'qmlfmt-hook)
+    (remove-hook 'after-save-hook 'sqlfmt-hook)
+    (remove-hook 'before-save-hook 'untabify-conditionally)
+    (remove-hook 'before-save-hook 'clang-format-before-save)
+    (remove-hook 'python-mode-hook 'py-yapf-enable-on-save)
+    (remove-hook 'after-save-hook 'autopepeight-hook)
+))
+
+(defun yes-fmt ()
+  (interactive)
+  (progn
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    (add-hook 'after-save-hook 'qmlfmt-hook)
+    (add-hook 'after-save-hook 'sqlfmt-hook)
+    (add-hook 'before-save-hook 'untabify-conditionally)
+    (add-hook 'before-save-hook 'clang-format-before-save)
+    (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+    (add-hook 'after-save-hook 'autopepeight-hook)
+))
+
+
 (add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
 
