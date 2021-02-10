@@ -1,4 +1,6 @@
 
+(set-face-attribute 'default nil :font  "Ubuntu Mono 13")
+
 (setq sort-fold-case nil)
 (setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
 
@@ -10,6 +12,10 @@
 (add-hook    'after-save-hook 'qmlfmt-hook)
 (remove-hook 'after-save-hook 'qmlfmt-hook)
 
+; ---------- SQL ----------
+(add-hook 'after-save-hook 'sqlfmt-hook)
+(remove-hook 'after-save-hook 'sqlfmt-hook)
+
 ; ---------- CPP CLANG-FORMAT ----------
 (add-hook 'before-save-hook 'clang-format-before-save)
 (add-hook 'before-save-hook 'untabify-conditionally)
@@ -17,13 +23,20 @@
 (remove-hook 'before-save-hook 'clang-format-before-save)
 (remove-hook 'before-save-hook 'untabify-conditionally)
 
-
 (setq clang-format-executable "clang-format-6.0")
 (setq clang-format-executable "clang-format-3.8")
 
 ; ---------- PYTHON YAPF ----------
 (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 (remove-hook 'python-mode-hook 'py-yapf-enable-on-save)
+
+; ---------- PYTHON autopepeight ----------
+(add-hook 'after-save-hook 'autopepeight-hook)
+(remove-hook 'after-save-hook 'autopepeight-hook)
+
+
+(setq cc-search-directories '("." "../Src" "../Src/*" "../Inc" "../Inc/*" "../../Src" "../../Src/*" "../../Inc" "../../Inc/*" "/usr/include" "/usr/local/include/*"))
+
 
 (setq mybuild-dir "/home/someone/proj/")
 
