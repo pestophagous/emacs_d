@@ -577,17 +577,18 @@ color-theme-xp) )
 ; transparency of the background of the window. 100 is totally opaque. 0 is "almost invisible"
 ;(add-to-list 'default-frame-alist '(alpha . (95)))
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(gdb-max-frames 100))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(gdb-max-frames 100)
+ '(package-selected-packages (quote (kotlin-mode realgud))))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 
@@ -923,6 +924,7 @@ color-theme-xp) )
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
+;   NOTE-TO-SELF: when you wish to update/refresh the package/archive list: M-x package-list-packages
 ; MELPA end
 
 (message "DONE LOADING DOT-EMACS")
