@@ -23,6 +23,8 @@
 (remove-hook 'before-save-hook 'clang-format-before-save)
 (remove-hook 'before-save-hook 'untabify-conditionally)
 
+; https://prereleases.llvm.org/win-snapshots/
+(setq clang-format-executable "C:\\Users\\username\\Downloads\\clang-format-r375090.exe")
 (setq clang-format-executable "clang-format-6.0")
 (setq clang-format-executable "clang-format-3.8")
 
@@ -42,3 +44,6 @@
 
 (setq mybuild-command "./build.sh") ; rm humbledrive1 ; go build -gcflags=all="-N -l" humbledrive1.go
 (setq mybuild-dir "/home/username/mygo/someproject/") ; contains build.sh
+
+(setq mybuild-command "C:\\Users\\username\\repositories\\wnmk.bat")
+(setq mybuild-dir "C:\\Users\\username\\repositories\\qt-qml-project-template-with-ci\\build\\")
