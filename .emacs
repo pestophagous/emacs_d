@@ -57,6 +57,11 @@
   (split-window-horizontally)
 )
 
+(defun mm () ; invoke the shell script for muting the audio that plays when (certain) build commands are finished
+  (interactive)
+  (shell-command "remute")
+)
+
 (defun gmw ()
         (interactive)
         (gdb-many-windows nil)
