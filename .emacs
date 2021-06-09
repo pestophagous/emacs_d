@@ -151,6 +151,18 @@
 
 (add-hook 'after-save-hook 'sqlfmt-hook)
 
+(defun myscript-hook-innards ()
+  (if buffer-file-name
+  (progn
+    (setq cmd "/opt/repositories/priv-dots/homebinpath/format_repo_c01 ") ; keep trailing space in cmd
+    (setq fullcmd (concat cmd "  > /dev/null 2>&1 " )); https://stackoverflow.com/a/56799321/10278
+    (shell-command fullcmd)
+    ;(message "ran command: %s" fullcmd)
+    ;(message "mode: %s" major-mode)
+    (revert-buffer 'ignore-auto 'noconfirm))))
+
+(add-hook 'after-save-hook 'myscript-hook-innards)
+
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
@@ -900,6 +912,7 @@ color-theme-xp) )
     (remove-hook 'before-save-hook 'clang-format-before-save)
     (remove-hook 'python-mode-hook 'py-yapf-enable-on-save)
     (remove-hook 'after-save-hook 'autopepeight-hook)
+    (remove-hook 'after-save-hook 'myscript-hook-innards)
 ))
 
 (defun yes-fmt ()
@@ -912,6 +925,7 @@ color-theme-xp) )
     (add-hook 'before-save-hook 'clang-format-before-save)
     (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
     (add-hook 'after-save-hook 'autopepeight-hook)
+    (add-hook 'after-save-hook 'myscript-hook-innards)
 ))
 
 
