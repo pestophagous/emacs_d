@@ -1,3 +1,4 @@
+; replace-smart-to-ascii  <- for curly braces
 
 (set-face-attribute 'default nil :font  "Ubuntu Mono 13")
 
@@ -22,6 +23,7 @@
 
 (remove-hook 'before-save-hook 'clang-format-before-save)
 (remove-hook 'before-save-hook 'untabify-conditionally)
+(setq clang-format-executable "clang-format-853728353")
 
 ; https://prereleases.llvm.org/win-snapshots/
 (setq clang-format-executable "C:\\Users\\username\\Downloads\\clang-format-r375090.exe")
