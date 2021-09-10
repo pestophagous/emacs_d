@@ -121,6 +121,8 @@
 (add-to-list 'auto-mode-alist '("\\.pbtxt$" . yaml-mode))
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
+(require 'dockerfile-mode) ; https://github.com/spotify/dockerfile-mode/blob/master/dockerfile-mode.el
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode))
