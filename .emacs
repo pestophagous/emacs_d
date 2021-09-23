@@ -375,6 +375,8 @@ color-theme-xp) )
 (add-to-list 'cc-other-file-alist '("\\.m\\'" (".h")))
 (add-to-list 'cc-other-file-alist '("\\.mm\\'" (".h")))
 
+; for projects where the 'h' and the 'cc' are not side-by-side siblings in a dir:
+(setq cc-search-directories '("." "../Src" "../Src/*" "../Inc" "../Inc/*" "../../Src" "../../Src/*" "../../Inc" "../../Inc/*" "/usr/include" "/usr/local/include/*" "../src" "../include"))
 
 (add-hook 'c-mode-common-hook
   (lambda()
