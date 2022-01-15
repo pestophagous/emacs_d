@@ -5,6 +5,12 @@
 (setq sort-fold-case nil)
 (setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
 
+; when editing something in emacs, a file starting with .# (dot + hashtag) is created.
+; what is this file? answer: These are lock files, they prevent any other Emacs
+; session from editing a file that has unsaved changes.
+(setq create-lockfiles nil)
+(setq create-lockfiles t)
+
 ; ---------- GOLANG ----------
 (add-hook    'before-save-hook 'gofmt-before-save)
 (remove-hook 'before-save-hook 'gofmt-before-save)
