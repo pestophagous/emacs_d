@@ -416,6 +416,29 @@ color-theme-xp) )
 (add-hook 'python-mode-hook 'my-python-mode-common-hook)
 (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 
+
+(defun my-typescript-mode-common-hook ()
+  ; i went nuts and pasted in anything about tabs that i found.
+  ; at some point i should find out if all these symbols even exist or not
+  ; i went nuts and pasted in anything about tabs that i found.
+  ; at some point i should find out if all these symbols even exist or not
+  (setq tab-width 2)
+  (setq c-tab-width 2)
+  (setq tab-always-indent t)
+  (setq c-tab-always-indent t)
+  (setq c-basic-offset 2)
+  (setq c-indent-level 2)
+  (setq typescript-indent-level 2)
+  (setq indent-tabs-mode nil) ; use spaces only if nil ; at one point i was passing 't'
+  (set-variable 'c-indent-offset 2)
+  (set-variable 'indent-tabs-mode nil)
+
+  (message "end of my-typescript-mode-common-hook")
+) ; end of (defun my-typescript-mode-common-hook ()
+
+(add-hook 'typescript-mode-hook 'my-typescript-mode-common-hook)
+
+
 (defun autopepeight-hook-innards ()
   (progn
     ; (setq cmd "/opt/repositories/client/redacted/redacted/env/bin/autopep8 -i ") ; keep trailing space in cmd
@@ -603,7 +626,7 @@ color-theme-xp) )
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
- '(package-selected-packages (quote (kotlin-mode realgud))))
+ '(package-selected-packages (quote (typescript-mode kotlin-mode realgud))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
