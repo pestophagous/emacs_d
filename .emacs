@@ -165,6 +165,23 @@
 
 (add-hook 'after-save-hook 'myscript-hook-innards)
 
+(defun tsfmt-hook-innards ()
+  (progn
+    (setq cmd "/opt/repositories/priv-dots/homebinpath/tsfmt -r ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+    (shell-command fullcmd)
+    (message "ran command: %s" fullcmd)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun tsfmt-hook ()
+  (if buffer-file-name
+      (progn
+        (if (derived-mode-p 'typescript-mode)
+            (tsfmt-hook-innards)))))
+
+(add-hook 'after-save-hook 'tsfmt-hook)
+
+
 (require 'qml-mode) ; in ~/.emacs.d/ ; qml needed to be required after cc-mode
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
@@ -934,6 +951,7 @@ color-theme-xp) )
   (progn
     (remove-hook 'before-save-hook 'gofmt-before-save)
     (remove-hook 'after-save-hook 'qmlfmt-hook)
+    (remove-hook 'after-save-hook 'tsfmt-hook)
     (remove-hook 'after-save-hook 'sqlfmt-hook)
     (remove-hook 'before-save-hook 'untabify-conditionally)
     (remove-hook 'before-save-hook 'clang-format-before-save)
@@ -947,6 +965,7 @@ color-theme-xp) )
   (progn
     (add-hook 'before-save-hook 'gofmt-before-save)
     (add-hook 'after-save-hook 'qmlfmt-hook)
+    (add-hook 'after-save-hook 'tsfmt-hook)
     (add-hook 'after-save-hook 'sqlfmt-hook)
     (add-hook 'before-save-hook 'untabify-conditionally)
     (add-hook 'before-save-hook 'clang-format-before-save)
