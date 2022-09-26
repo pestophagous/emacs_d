@@ -30,6 +30,8 @@
 (setq-default fill-column 80)  ; 80 for google style
 (setq fill-column 80)  ; 80 for google style
 
+(setq Buffer-menu-name-width 32)
+
 ; thanks to: https://stackoverflow.com/a/24857101/10278
 (defun untabify-conditionally ()
   (unless (or (derived-mode-p 'makefile-gmake-mode)

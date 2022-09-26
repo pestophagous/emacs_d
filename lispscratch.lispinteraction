@@ -2,6 +2,8 @@
 
 (set-face-attribute 'default nil :font  "Ubuntu Mono 13")
 
+(setq Buffer-menu-name-width 32)
+
 (setq sort-fold-case nil)
 (setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
 
