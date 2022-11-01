@@ -980,6 +980,8 @@ color-theme-xp) )
 (add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
 
+(find-file  "~/.emacs.d/lisp/unicode_cheatsheet.txt")
+
 ; MELPA begin
 
 ; if you are still on ubuntu 16 (or anywhere with emacs 24 or below):

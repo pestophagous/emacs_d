@@ -1,0 +1,20 @@
+Letter  Letter Type     Alt Code
+
+   ¡  a1   00a1      Inverted Exclamation Point   0161
+   ¿  bf   00bf      Inverted Question Mark       0191
+
+   á  e1   00e1      Lowercase  (a)     0225
+   é  e9   00e9      Lowercase  (e)     0233
+   í  ed   00ed      Lowercase  (i)     0237
+   ñ  f1   00f1      Lowecase   (nn)    0241
+   ó  f3   00f3      Lowercase  (o)     0243
+   ú  fa   00fa      Lowercase  (a)     0250
+   ü  fc   00fc      Lowercase  (u)     0252
+
+   Á  c1   00c1      Uppercase  (A)     0193
+   É  c9   00c9      Uppercase  (E)     0201
+   Í  cd   00cd      Uppercase  (I)     0205
+   Ñ  d3   00d3      Uppercase  (NN)    0209
+   Ó  da   00da      Uppercase  (O)     0211
+   Ú  dc   00dc      Uppercase  (U)     0218
+   Ü  d1   00d1      Uppercase  (U)     0220
