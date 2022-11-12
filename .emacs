@@ -101,6 +101,12 @@
   (set-window-dedicated-p (selected-window) t)
 )
 
+(defun gdut () ; the 'antidote'(opposite) of gddt. needed this to un-f*ck gud/gmw
+  (interactive)
+  (set-window-dedicated-p (selected-window) nil)
+)
+
+
 (require 'qmake-mode)
 
 (add-to-list 'auto-mode-alist '("\\.pri$" . qmake-mode))
@@ -121,6 +127,7 @@
 (require 'coffee-mode)
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.pbtxt$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.pb\\.ascii$" . yaml-mode))
 
 (require 'cc-mode) ; /Applications/Emacs.app/Contents/Resources/lisp/progmodes/cc-mode.elc
 (require 'dockerfile-mode) ; https://github.com/spotify/dockerfile-mode/blob/master/dockerfile-mode.el
@@ -981,6 +988,8 @@ color-theme-xp) )
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
 
 (find-file  "~/.emacs.d/lisp/unicode_cheatsheet.txt")
+
+(require 'cmake-mode)
 
 ; MELPA begin
 
