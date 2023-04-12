@@ -10,6 +10,7 @@ Letter  Letter Type     Alt Code
    ó  f3   00f3      Lowercase  (o)     0243
    ú  fa   00fa      Lowercase  (a)     0250
    ü  fc   00fc      Lowercase  (u)     0252
+   ç  e7   00e7      Lowercase c cedilla 0231
 
    Á  c1   00c1      Uppercase  (A)     0193
    É  c9   00c9      Uppercase  (E)     0201
@@ -18,3 +19,4 @@ Letter  Letter Type     Alt Code
    Ó  da   00da      Uppercase  (O)     0211
    Ú  dc   00dc      Uppercase  (U)     0218
    Ü  d1   00d1      Uppercase  (U)     0220
+   Ç  c7   00c7      Uppercase C Cedilla 0199
