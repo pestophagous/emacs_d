@@ -667,7 +667,7 @@ color-theme-xp) )
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
- '(package-selected-packages (quote (typescript-mode kotlin-mode realgud))))
+ '(package-selected-packages '(diff-hl typescript-mode kotlin-mode realgud)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -675,6 +675,9 @@ color-theme-xp) )
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'diff-hl)
+(global-diff-hl-mode)
 
 
 ; READJUST keyboard, since my Mac OS X SYSTEM PREFERENCES do remapping themselves...

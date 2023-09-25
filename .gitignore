@@ -1,3 +1,4 @@
 .emacs.desktop
 auto-save-list
 elpa/gnupg
+*elc
