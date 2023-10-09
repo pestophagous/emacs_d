@@ -228,6 +228,32 @@
 
 (add-hook 'after-save-hook 'qmlfmt-hook)
 
+
+(defun cmake-format-hook-innards ()
+  (progn
+    (setq cmd "cmake-format -i ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+    (shell-command fullcmd)
+    (message "ran command: %s" fullcmd)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun cmake-format-i ()
+  (interactive)
+  (if buffer-file-name
+      (progn
+        (cmake-format-hook-innards))))
+
+; sudo apt install cmake-format
+; https://github.com/cheshirekow/cmake_format
+(defun cmake-format-hook ()
+  (if buffer-file-name
+      (progn
+        (if (derived-mode-p 'cmake-mode)
+            (cmake-format-hook-innards)))))
+
+(add-hook 'after-save-hook 'cmake-format-hook)
+
+
 ;(add-to-list 'load-path "/opt/repos/matlab-emacs-src") ; git clone git://git.code.sf.net/p/matlab-emacs/src
 ;(load-library "matlab-load")
 
@@ -978,6 +1004,7 @@ color-theme-xp) )
   (progn
     (remove-hook 'before-save-hook 'gofmt-before-save)
     (remove-hook 'after-save-hook 'qmlfmt-hook)
+    (remove-hook 'after-save-hook 'cmake-format-hook)
     (remove-hook 'after-save-hook 'tsfmt-hook)
     (remove-hook 'after-save-hook 'sqlfmt-hook)
     (remove-hook 'before-save-hook 'untabify-conditionally)
@@ -992,6 +1019,7 @@ color-theme-xp) )
   (progn
     (add-hook 'before-save-hook 'gofmt-before-save)
     (add-hook 'after-save-hook 'qmlfmt-hook)
+    (add-hook 'after-save-hook 'cmake-format-hook)
     (add-hook 'after-save-hook 'tsfmt-hook)
     (add-hook 'after-save-hook 'sqlfmt-hook)
     (add-hook 'before-save-hook 'untabify-conditionally)
