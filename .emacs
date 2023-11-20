@@ -1030,6 +1030,24 @@ color-theme-xp) )
 ))
 
 
+; TODO: figure out how to automatically "press":
+;  ! to replace all remaining matches in this buffer with no more questions,
+(defun nd ()
+  (interactive)
+  (progn
+    (let ((orig-point (point)))
+      (if (use-region-p)
+          (query-replace "$\n" "\n"
+                         nil nil nil nil nil)
+        (save-excursion
+          (goto-char (point-min))
+          (query-replace "$\n" "\n"
+                         nil nil nil nil nil)
+          ))
+      (message "Back to old point.")
+      (goto-char orig-point))))
+
+
 (add-to-list 'auto-mode-alist '("\\.lispinteraction$" . lisp-interaction-mode))
 (find-file  "~/.emacs.d/lisp/lispscratch.lispinteraction")
 
