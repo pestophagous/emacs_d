@@ -1,6 +1,8 @@
 ; replace-smart-to-ascii  <- for curly braces
 
 (set-face-attribute 'default nil :font  "Ubuntu Mono 13")
+(set-face-attribute 'default nil :font  "Cascadia Mono 12")
+
 (emacs-version)
 
 (setq Buffer-menu-name-width 32)
