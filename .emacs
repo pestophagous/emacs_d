@@ -693,7 +693,7 @@ color-theme-xp) )
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
- '(package-selected-packages '(diff-hl typescript-mode kotlin-mode realgud)))
+ '(package-selected-packages '(rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -1070,5 +1070,20 @@ color-theme-xp) )
 (package-initialize)
 ;   NOTE-TO-SELF: when you wish to update/refresh the package/archive list: M-x package-list-packages
 ; MELPA end
+
+
+(require 'rainbow-mode)
+(setq rainbow-x-colors t)
+(setq rainbow-latex-colors t)
+(setq rainbow-ansi-colors t)
+(setq rainbow-html-colors t)
+(setq rainbow-r-colors t)
+
+(defun hacky-hook-to-put-rainbow-everywhere ()
+  (progn
+    (rainbow-mode 1)
+    (message "entered hacky-hook-to-put-rainbow-everywhere")))
+
+(add-hook 'find-file-hook 'hacky-hook-to-put-rainbow-everywhere)
 
 (message "DONE LOADING DOT-EMACS")
