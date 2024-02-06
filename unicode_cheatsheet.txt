@@ -20,3 +20,25 @@ Letter  Letter Type     Alt Code
    Ú  dc   00dc      Uppercase  (U)     0218
    Ü  d1   00d1      Uppercase  (U)     0220
    Ç  c7   00c7      Uppercase C Cedilla 0199
+
+
+aqua
+chartreuse
+darkcyan
+darkmagenta
+darkred
+forestgreen
+gold
+goldenrod
+greenyellow
+lightgreen
+coral
+lightpink
+magenta
+mediumpurple
+olive
+orangered
+plum
+sandybrown
+teal
+violet

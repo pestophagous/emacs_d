@@ -1053,6 +1053,8 @@ color-theme-xp) )
 
 (find-file  "~/.emacs.d/lisp/unicode_cheatsheet.txt")
 
+(add-to-list 'auto-mode-alist '("qss$" . css-mode))
+
 (require 'cmake-mode)
 
 ; MELPA begin
