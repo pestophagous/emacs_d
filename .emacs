@@ -111,7 +111,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.pri$" . qmake-mode))
 
-(require 'py-yapf)
+;(require 'py-yapf)
 (require 'go-mode-autoloads)
 (require 'go-dlv)
 
@@ -481,7 +481,7 @@ color-theme-xp) )
 ) ; end of (defun my-python-mode-common-hook ()
 
 (add-hook 'python-mode-hook 'my-python-mode-common-hook)
-(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+;(add-hook 'python-mode-hook 'py-yapf-enable-on-save) ;
 
 
 (defun my-typescript-mode-common-hook ()
@@ -509,7 +509,7 @@ color-theme-xp) )
 (defun autopepeight-hook-innards ()
   (progn
     ; (setq cmd "/opt/repositories/client/redacted/redacted/env/bin/autopep8 -i ") ; keep trailing space in cmd
-    (setq cmd "autopep8 -i ") ; keep trailing space in cmd
+    (setq cmd "pyfmting ") ; keep trailing space in cmd
     (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
     (shell-command fullcmd)
     (message "ran command: %s" fullcmd)
@@ -1009,7 +1009,6 @@ color-theme-xp) )
     (remove-hook 'after-save-hook 'sqlfmt-hook)
     (remove-hook 'before-save-hook 'untabify-conditionally)
     (remove-hook 'before-save-hook 'clang-format-before-save)
-    (remove-hook 'python-mode-hook 'py-yapf-enable-on-save)
     (remove-hook 'after-save-hook 'autopepeight-hook)
     (remove-hook 'after-save-hook 'myscript-hook-innards)
 ))
@@ -1024,7 +1023,6 @@ color-theme-xp) )
     (add-hook 'after-save-hook 'sqlfmt-hook)
     (add-hook 'before-save-hook 'untabify-conditionally)
     (add-hook 'before-save-hook 'clang-format-before-save)
-    (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
     (add-hook 'after-save-hook 'autopepeight-hook)
     (add-hook 'after-save-hook 'myscript-hook-innards)
 ))
