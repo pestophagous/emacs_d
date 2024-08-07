@@ -693,7 +693,8 @@ color-theme-xp) )
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
- '(package-selected-packages '(rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
+ '(package-selected-packages
+   '(swift-mode rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
