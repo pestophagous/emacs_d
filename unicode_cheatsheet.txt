@@ -21,6 +21,20 @@ Letter  Letter Type     Alt Code
    Ü  d1   00d1      Uppercase  (U)     0220
    Ç  c7   00c7      Uppercase C Cedilla 0199
 
+   —       2014      Em Dash
+
+(or just look at rainbow-mode.el under ~/.emacs.d/lisp/elpa/)
+darkred
+orangered
+goldenrod
+yellow
+green
+blue
+aqua
+purple
+olive
+teal
+
 
 aqua
 chartreuse
