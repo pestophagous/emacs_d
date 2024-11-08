@@ -3,6 +3,10 @@
 (set-face-attribute 'default nil :font  "Ubuntu Mono 13")
 (set-face-attribute 'default nil :font  "Cascadia Mono 12")
 
+(setq mygrep-rootdir "/opt/sb/")
+
+(setq mygrep-command "lsfg ")
+
 (emacs-version)
 
 (setq Buffer-menu-name-width 32)
