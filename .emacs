@@ -215,6 +215,11 @@ list is empty)."
       (progn
         (if (eq major-mode 'sql-mode)
             (sqlfmt-hook-innards)))))
+;(defun sqlfmt-hook ()
+;  (if buffer-file-name
+;      (progn
+;        (if (and (eq major-mode 'sql-mode) (string-match ".*fsqlfscratch.*" buffer-file-name ))
+;            (sqlfmt-hook-innards)))))
 
 (add-hook 'after-save-hook 'sqlfmt-hook)
 
@@ -563,13 +568,18 @@ color-theme-xp) )
 
 
 (defun autopepeight-hook-innards ()
-  (progn
-    ; (setq cmd "/opt/repositories/client/redacted/redacted/env/bin/autopep8 -i ") ; keep trailing space in cmd
-    (setq cmd "pyfmting ") ; keep trailing space in cmd
-    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
-    (shell-command fullcmd)
-    (message "ran command: %s" fullcmd)
-    (revert-buffer 'ignore-auto 'noconfirm)))
+  (if (not (member buffer-file-name
+            '("aaaa"
+              "bbbb"
+              "cccc"
+              ) ))
+    (progn
+      ; (setq cmd "/opt/repositories/client/redacted/redacted/env/bin/autopep8 -i ") ; keep trailing space in cmd
+      (setq cmd "pyfmting ") ; keep trailing space in cmd
+      (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+      (shell-command fullcmd)
+      (message "ran command on NON-blacklisted: %s" fullcmd)
+      (revert-buffer 'ignore-auto 'noconfirm))))
 
 (defun autopepeight-hook ()
   (if buffer-file-name
