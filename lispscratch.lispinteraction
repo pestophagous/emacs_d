@@ -64,3 +64,9 @@
 
 (setq mybuild-command "C:\\Users\\username\\repositories\\wnmk.bat")
 (setq mybuild-dir "C:\\Users\\username\\repositories\\qt-qml-project-template-with-ci\\build\\")
+
+(progn
+  (setq mygrep-rootdir "/opt/repositories/client/219/rustlings/exercises/")
+  (setq mybuild-dir "/opt/repositories/client/219/rustlings/exercises/")
+  (setq mybuild-command "rustc 01_variables/variables1.rs")
+)
