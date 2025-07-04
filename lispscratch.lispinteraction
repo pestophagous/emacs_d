@@ -67,6 +67,8 @@
 
 (progn
   (setq mygrep-rootdir "/opt/repositories/client/219/rustlings/exercises/")
-  (setq mybuild-dir "/opt/repositories/client/219/rustlings/exercises/")
-  (setq mybuild-command "rustc 01_variables/variables1.rs")
+  ;(setq mybuild-dir "/opt/repositories/client/219/rustlings/exercises/")
+  (setq mybuild-dir "/opt/repositories/client/219/rustlings/")
+  ;(setq mybuild-command "rustc active.rs -Wnon-ascii-idents")
+  (setq mybuild-command "cargo test --bin if1")
 )
