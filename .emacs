@@ -291,12 +291,17 @@ list is empty)."
 
 
 (defun cmake-format-hook-innards ()
-  (progn
-    (setq cmd "cmake-format -i ") ; keep trailing space in cmd
-    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
-    (shell-command fullcmd)
-    (message "ran command: %s" fullcmd)
-    (revert-buffer 'ignore-auto 'noconfirm)))
+  (if (not (member buffer-file-name
+            '("aaa"
+              "bbbb"
+              "cccc"
+              ) ))
+    (progn
+      (setq cmd "cmake-format -i ") ; keep trailing space in cmd
+      (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+      (shell-command fullcmd)
+      (message "ran command: %s" fullcmd)
+      (revert-buffer 'ignore-auto 'noconfirm))))
 
 (defun cmake-format-i ()
   (interactive)
