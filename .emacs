@@ -760,7 +760,7 @@ color-theme-xp) )
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
  '(package-selected-packages
-   '(swift-mode rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
+   '(rust-mode swift-mode rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -1136,6 +1136,26 @@ color-theme-xp) )
 ;   NOTE-TO-SELF: when you wish to update/refresh the package/archive list: M-x package-list-packages
 ; MELPA end
 
+(add-to-list 'load-path "/opt/repositories/rust-mode") ; git clone https://github.com/rust-lang/rust-mode.git
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+(defun rustfmt-hook-innards ()
+  (progn
+    (setq cmd "rustfmt ") ; keep trailing space in cmd
+    (setq fullcmd (concat (concat cmd (prin1-to-string buffer-file-name)) " > /dev/null 2>&1"))
+    (shell-command fullcmd)
+    (message "ran command: %s" fullcmd)
+    (revert-buffer 'ignore-auto 'noconfirm)))
+
+(defun rustfmt-hook ()
+  (if buffer-file-name
+      (progn
+        (if (derived-mode-p 'rust-mode)
+            (rustfmt-hook-innards)))))
+
+(add-hook 'after-save-hook 'rustfmt-hook)
+
 
 (require 'rainbow-mode)
 (setq rainbow-x-colors t)
@@ -1150,5 +1170,9 @@ color-theme-xp) )
     (message "entered hacky-hook-to-put-rainbow-everywhere")))
 
 (add-hook 'find-file-hook 'hacky-hook-to-put-rainbow-everywhere)
+
+
+(setq sort-fold-case nil)
+(setq sort-fold-case t)   ; to make sort-lines ignore upper/lower case
 
 (message "DONE LOADING DOT-EMACS")
