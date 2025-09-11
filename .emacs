@@ -27,6 +27,10 @@
 (setq desktop-restore-eager 25) ; restore N buffers immediately, the rest lazily. [otherwise ALL buffers load by default]
 (desktop-save-mode 1)
 
+; electric-indent-mode made editing my machete config a pain.
+; see: https://emacs.stackexchange.com/questions/5939/how-to-disable-auto-indentation-of-new-lines
+(when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
 (setq-default fill-column 80)  ; 80 for google style
 (setq fill-column 80)  ; 80 for google style
 
