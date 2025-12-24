@@ -392,6 +392,10 @@ list is empty)."
 (require 'ring+) ; ~/.emacs.d/ring+.el
 (require 'doremi) ; ~/.emacs.d/doremi.el
 
+(require 'plantuml-mode)
+(setq plantuml-jar-path "~/Downloads/plantuml-gplv2-1.2025.10.jar")
+(setq plantuml-default-exec-mode 'jar)
+(add-to-list 'auto-mode-alist '("\\.puml$" . plantuml-mode))
 
 
 (require 'color-theme) ; /Applications/Emacs.app/Contents/Resources/site-lisp/color-theme/color-theme.elc
@@ -769,7 +773,7 @@ color-theme-xp) )
  ;; If there is more than one, they won't work right.
  '(gdb-max-frames 100)
  '(package-selected-packages
-   '(rust-mode swift-mode rainbow-mode diff-hl typescript-mode kotlin-mode realgud)))
+   '(rust-mode swift-mode rainbow-mode diff-hl typescript-mode kotlin-mode realgud dash)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
