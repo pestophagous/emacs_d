@@ -398,6 +398,7 @@ list is empty)."
 (add-to-list 'auto-mode-alist '("\\.puml$" . plantuml-mode))
 
 (require 'math)
+(add-to-list 'auto-mode-alist '("\\.nb$" . math-mode))
 
 (require 'color-theme) ; /Applications/Emacs.app/Contents/Resources/site-lisp/color-theme/color-theme.elc
 (eval-after-load "color-theme"
