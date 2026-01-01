@@ -397,6 +397,7 @@ list is empty)."
 (setq plantuml-default-exec-mode 'jar)
 (add-to-list 'auto-mode-alist '("\\.puml$" . plantuml-mode))
 
+(require 'math)
 
 (require 'color-theme) ; /Applications/Emacs.app/Contents/Resources/site-lisp/color-theme/color-theme.elc
 (eval-after-load "color-theme"
