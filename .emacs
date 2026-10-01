@@ -20,7 +20,7 @@
 (setq debmachine1 "deb1.m.home")
 
 
-(setq desktop-path '("~/.emacs.d/" "~" "."))
+(setq desktop-path '("." "~/.emacs.d/" "~"))
 
 
 
@@ -35,6 +35,8 @@
 (setq fill-column 80)  ; 80 for google style
 
 (setq Buffer-menu-name-width 32)
+
+(add-to-list 'auto-mode-alist '("meta_list\\.txt" . conf-mode))
 
 (setq mygrep-rootdir "/tmp/")
 (setq mygrep-command "lsfg ")
@@ -204,7 +206,7 @@ list is empty)."
     (setq cmd "/opt/repositories/priv-dots/homebinpath/fsqlf ") ; keep trailing space in cmd
     (setq fullcmd (concat (concat (concat cmd (prin1-to-string buffer-file-name)) "  > 7bff3785ba33.sql ; mv 7bff3785ba33.sql ") (prin1-to-string buffer-file-name)))
     (shell-command fullcmd)
-    ;(message "ran command: %s" fullcmd)
+    (message "ran command: %s" fullcmd)
     ;(message "mode: %s" major-mode)
     (revert-buffer 'ignore-auto 'noconfirm)))
 
@@ -943,6 +945,23 @@ color-theme-xp) )
     (setq mybuild-dir "/home/myself/Documents/SHARED/gitsubsurf/"))
 
 (setq mybuild-command "/opt/repos/priv-dots/cdvv/bashies/build1.sh")
+
+; "opposite of suc"
+(defun cus ()
+  (interactive)
+  (progn
+    (cl-loop for proc in (process-list)
+             when (string-match ".*compilation.*" (process-name proc))
+             do
+             (progn (message "disabling query-on-exit for '%s'" proc)
+                    (set-process-query-on-exit-flag proc nil)))
+    (when (get-buffer-window "*compilation*")
+      (switch-to-buffer-other-window "*compilation*")
+      (buffer-modified-p nil)
+      (kill-buffer (current-buffer))
+      )
+    )
+)
 
 (defun sucompile ()
         (interactive)
